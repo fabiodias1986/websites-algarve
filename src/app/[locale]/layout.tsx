@@ -34,7 +34,7 @@ export async function generateMetadata({
     const { locale } = await params;
     const t = await getTranslations({ locale, namespace: 'Metadata' });
 
-    const baseUrl = 'https://websitesalgarve.pt';
+    const baseUrl = 'https://www.websitesalgarve.pt';
     const currentUrl = locale === 'pt' ? baseUrl : `${baseUrl}/${locale}`;
 
     return {

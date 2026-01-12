@@ -82,7 +82,7 @@ export function Mission() {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -20 }}
                                 transition={{ duration: 0.5 }}
-                                className="grid md:grid-cols-3 gap-8"
+                                className="grid md:grid-cols-3 gap-8 will-change-transform"
                             >
                                 {visibleCards.map((card) => (
                                     <div

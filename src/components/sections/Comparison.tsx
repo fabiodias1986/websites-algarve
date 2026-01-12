@@ -103,7 +103,7 @@ export function Comparison() {
 
                 <div
                     ref={containerRef}
-                    className="relative w-full max-w-5xl mx-auto h-[600px] md:h-[700px] rounded-2xl overflow-hidden cursor-ew-resize select-none border border-white/10 shadow-2xl bg-black touch-pan-y"
+                    className="relative w-full max-w-5xl mx-auto h-[600px] md:h-[700px] rounded-2xl overflow-hidden cursor-ew-resize select-none border border-white/10 shadow-2xl bg-black touch-pan-y will-change-transform"
                     style={{ touchAction: 'pan-y' }} // Explicit inline style to ensure browser respects it
                     onMouseDown={() => isDragging.current = true}
                     onMouseUp={() => isDragging.current = false}
