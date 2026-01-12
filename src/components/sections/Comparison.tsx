@@ -103,7 +103,7 @@ export function Comparison() {
 
                 <div
                     ref={containerRef}
-                    className="relative w-full max-w-5xl mx-auto h-[450px] md:h-[600px] rounded-2xl overflow-hidden cursor-ew-resize select-none border border-white/10 shadow-2xl bg-black touch-pan-y"
+                    className="relative w-full max-w-5xl mx-auto h-[600px] md:h-[700px] rounded-2xl overflow-hidden cursor-ew-resize select-none border border-white/10 shadow-2xl bg-black touch-pan-y"
                     style={{ touchAction: 'pan-y' }} // Explicit inline style to ensure browser respects it
                     onMouseDown={() => isDragging.current = true}
                     onMouseUp={() => isDragging.current = false}
@@ -351,13 +351,13 @@ export function Comparison() {
                     </div>
 
                     {/* Labels */}
-                    <div className="absolute bottom-6 left-6 z-30 pointer-events-none">
-                        <span className="px-4 py-2 bg-black/90 backdrop-blur-md text-white text-[10px] md:text-sm font-mono uppercase tracking-widest rounded-lg border border-white/20 shadow-lg shadow-black/50">
+                    <div className="absolute top-4 left-4 md:top-auto md:bottom-6 md:left-6 z-30 pointer-events-none">
+                        <span className="px-3 py-1.5 md:px-4 md:py-2 bg-black/90 backdrop-blur-md text-white text-[10px] md:text-sm font-mono uppercase tracking-widest rounded-lg border border-white/20 shadow-lg shadow-black/50">
                             {t('before_label')}
                         </span>
                     </div>
-                    <div className="absolute bottom-6 right-6 z-30 pointer-events-none">
-                        <span className="px-4 py-2 bg-emerald-500 text-black text-[10px] md:text-sm font-mono uppercase tracking-widest rounded-lg font-bold shadow-lg shadow-emerald-500/20">
+                    <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 z-30 pointer-events-none">
+                        <span className="px-3 py-1.5 md:px-4 md:py-2 bg-emerald-500 text-black text-[10px] md:text-sm font-mono uppercase tracking-widest rounded-lg font-bold shadow-lg shadow-emerald-500/20">
                             {t('after_label')}
                         </span>
                     </div>

@@ -17,6 +17,7 @@ export function Navbar() {
     const [activeSection, setActiveSection] = useState("#hero");
     const [scrolled, setScrolled] = useState(false);
     const [mounted, setMounted] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const { scrollY } = useScroll();
 
     useMotionValueEvent(scrollY, "change", (latest) => {
@@ -179,7 +180,7 @@ export function Navbar() {
                     <div className="md:hidden flex items-center gap-2">
                         {mounted && <LanguageSwitcher />}
                         {mounted ? (
-                            <Sheet>
+                            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                                 <SheetTrigger asChild>
                                     <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 rounded-full" aria-label="Toggle menu">
                                         <Menu className="h-5 w-5" />
@@ -199,10 +200,7 @@ export function Navbar() {
                                                         if (isHomePage) {
                                                             scrollToSection(e, link.href);
                                                         }
-                                                        // Close sheet logic if needed? 
-                                                        // The SheetTrigger likely handles close on click if we add 'asChild' or similar, 
-                                                        // but standard Link might not close the sheet automatically without state.
-                                                        // However, keeping previous behavior scope first.
+                                                        setMobileMenuOpen(false);
                                                     }}
                                                     className="text-3xl font-bold tracking-tight text-white hover:text-emerald-400 transition-colors font-playfair"
                                                 >
