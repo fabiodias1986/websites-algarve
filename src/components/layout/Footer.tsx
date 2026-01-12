@@ -29,7 +29,7 @@ export function Footer() {
                         <p className="text-base text-muted-foreground max-w-sm">
                             {t('slogan')}
                         </p>
-                        <div className="flex gap-4 pt-4">
+                        {/* <div className="flex gap-4 pt-4">
                             {[
                                 { icon: Instagram, name: "Instagram" },
                                 { icon: Linkedin, name: "LinkedIn" }
@@ -43,7 +43,7 @@ export function Footer() {
                                     <social.icon className="w-5 h-5" />
                                 </a>
                             ))}
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* Contacts */}

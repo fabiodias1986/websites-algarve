@@ -121,7 +121,7 @@ export function Comparison() {
                     <div
                         ref={rightScrollRef}
                         onScroll={() => handleScroll('right')}
-                        className="absolute inset-0 bg-zinc-950 flex flex-col overflow-y-auto no-scrollbar touch-pan-y"
+                        className="absolute inset-0 bg-zinc-950 flex flex-col overflow-hidden md:overflow-y-auto no-scrollbar touch-pan-y"
                         style={{ touchAction: 'pan-y' }}
                     >
 
@@ -139,52 +139,67 @@ export function Comparison() {
                         </div>
 
                         {/* Premium Content Wrapper */}
-                        <div className="flex-col min-h-[150vh]">
+                        <div className="flex-col min-h-[100%] md:min-h-[150vh]">
 
-                            {/* Premium Hero */}
-                            <div className="relative h-[500px] w-full bg-zinc-900 group overflow-hidden">
+                            {/* Premium Hero - Refined Design */}
+                            <div className="relative h-full md:h-[500px] flex-1 w-full bg-zinc-900 group overflow-hidden flex flex-col justify-center">
                                 <div
                                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
                                     style={{ backgroundImage: "url('/images/premium_villa.png')" }}
                                 ></div>
-                                <div className="absolute inset-0 bg-black/40"></div>
-                                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
-                                <div className="relative z-10 h-full flex flex-col justify-center px-12 md:px-24 space-y-8">
+                                <div className="absolute inset-0 bg-black/30"></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+
+                                <div className="relative z-10 w-full flex flex-col justify-center px-8 md:px-24 space-y-6 md:space-y-8 mt-12 md:mt-0">
                                     <motion.div
                                         initial={{ opacity: 0, y: 20 }}
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
-                                        className="inline-block px-3 py-1 border border-emerald-500/30 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-mono uppercase tracking-wider w-fit backdrop-blur-md"
+                                        className="inline-flex items-center gap-2 self-start px-3 py-1 border border-white/20 rounded-full bg-white/5 backdrop-blur-md"
                                     >
-                                        Private Collection
+                                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></div>
+                                        <span className="text-white/90 text-[10px] md:text-xs font-mono uppercase tracking-widest">Private Collection</span>
                                     </motion.div>
+
                                     <motion.div
                                         initial={{ opacity: 0, y: 20 }}
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: 0.1 }}
-                                        className="text-4xl md:text-6xl font-playfair text-white leading-tight drop-shadow-2xl"
+                                        className="text-4xl md:text-6xl font-playfair text-white leading-[1.1] drop-shadow-2xl"
                                     >
                                         The Art of <br />
-                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 to-emerald-500">Living Well.</span>
+                                        <span className="text-white italic font-light">Living Well.</span>
                                     </motion.div>
+
+                                    <motion.p
+                                        initial={{ opacity: 0 }}
+                                        whileInView={{ opacity: 1 }}
+                                        transition={{ delay: 0.2 }}
+                                        className="text-white/70 text-sm md:text-base max-w-sm leading-relaxed"
+                                    >
+                                        Experience the pinnacle of luxury real estate in the heart of the Algarve.
+                                    </motion.p>
+
                                     <motion.button
                                         initial={{ opacity: 0, y: 20 }}
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
-                                        transition={{ delay: 0.2 }}
-                                        className="px-8 py-4 bg-white text-black font-bold uppercase tracking-widest text-sm hover:bg-emerald-50 transition w-fit shadow-lg hover:shadow-emerald-500/20"
+                                        transition={{ delay: 0.3 }}
+                                        className="group/btn relative px-8 py-4 bg-white text-black font-bold uppercase tracking-widest text-xs md:text-sm w-fit overflow-hidden"
                                     >
-                                        Explore Villas
+                                        <div className="absolute inset-0 bg-emerald-400 transform scale-x-0 group-hover/btn:scale-x-100 transition-transform origin-left duration-300"></div>
+                                        <span className="relative z-10 group-hover/btn:text-black transition-colors">Explore Villas</span>
                                     </motion.button>
                                 </div>
                             </div>
 
-                            {/* Premium Content Body */}
-                            <div className="bg-black py-20 px-12 space-y-16">
+                            {/* Premium Content Body (Only visible on Desktop or if scroll allowed) */}
+                            <div className="bg-black py-20 px-12 space-y-16 hidden md:block">
 
                                 {/* About Us Section */}
                                 <div className="space-y-6">
+
                                     <motion.p
                                         initial={{ opacity: 0 }}
                                         whileInView={{ opacity: 1 }}
@@ -265,7 +280,7 @@ export function Comparison() {
                         <div
                             ref={leftScrollRef}
                             onScroll={() => handleScroll('left')}
-                            className="bg-[#f0f0f0] w-full h-full overflow-y-auto pointer-events-auto border-r-4 border-white font-sans no-scrollbar touch-pan-y"
+                            className="bg-[#f0f0f0] w-full h-full overflow-hidden md:overflow-y-auto pointer-events-auto border-r-4 border-white font-sans no-scrollbar touch-pan-y"
                             style={{ touchAction: 'pan-y' }}
                         >
                             {/* Standard Header - 2005 Style */}

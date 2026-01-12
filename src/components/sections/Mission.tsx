@@ -61,7 +61,7 @@ export function Mission() {
                         <span className="text-xs font-mono text-emerald-400 uppercase tracking-widest">{t('badge')}</span>
                     </motion.div>
 
-                    <h2 className="text-4xl md:text-5xl font-bold mb-3 md:mb-6 font-playfair leading-[1.1] text-white text-balance">
+                    <h2 className="text-4xl md:text-6xl font-bold mb-3 md:mb-6 font-playfair leading-[1.1] text-white text-balance">
                         {t.rich('title', {
                             highlight: (chunks) => <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">{chunks}</span>,
                             break: () => <br className="md:hidden" />

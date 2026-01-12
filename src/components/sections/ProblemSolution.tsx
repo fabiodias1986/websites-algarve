@@ -27,7 +27,7 @@ export function ProblemSolution() {
                             <span className="font-mono uppercase tracking-widest text-xs">{t('problem_tag')}</span>
                         </div>
 
-                        <h2 className="text-4xl md:text-5xl font-bold font-playfair text-white mb-3 md:mb-8 leading-[1.1] text-balance">
+                        <h2 className="text-4xl md:text-6xl font-bold font-playfair text-white mb-3 md:mb-8 leading-[1.1] text-balance">
                             {t.rich('problem_title', {
                                 highlight: (chunks) => <span className="text-red-500">{chunks}</span>,
                                 break: () => <br className="md:hidden" />
