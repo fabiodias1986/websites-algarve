@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { LanguageSwitcher } from "@/components/common/LanguageSwitcher";
 import { Menu, X } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
 export function Navbar() {
@@ -173,21 +174,15 @@ export function Navbar() {
                                             {link.label}
                                         </a>
                                     ))}
-                                    <Button
-                                        onClick={(e) => {
-                                            const element = document.querySelector('#contact');
-                                            if (element) {
-                                                const offset = 80;
-                                                const bodyRect = document.body.getBoundingClientRect().top;
-                                                <a
-                                                    href="https://wa.me/351910908608"
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="w-64 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold rounded-full py-6 text-lg uppercase tracking-wider mt-4 flex items-center justify-center gap-2"
-                                                >
-                                                    <FaWhatsapp className="w-6 h-6" />
-                                                    {t("contact")}
-                                                </a>
+                                    <a
+                                        href="https://wa.me/351910908608"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-64 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold rounded-full py-6 text-lg uppercase tracking-wider mt-4 flex items-center justify-center gap-2"
+                                    >
+                                        <FaWhatsapp className="w-6 h-6" />
+                                        {t("contact")}
+                                    </a>
                                 </div>
                             </SheetContent>
                         </Sheet>
