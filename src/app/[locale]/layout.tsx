@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { JsonLd } from "@/components/seo/JsonLd";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -104,6 +105,7 @@ export default async function LocaleLayout({
             <body
                 className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} antialiased bg-background text-foreground flex flex-col min-h-screen`}
             >
+                <JsonLd locale={locale} />
                 <NextIntlClientProvider messages={messages}>
                     <Navbar />
                     <main className="flex-grow">

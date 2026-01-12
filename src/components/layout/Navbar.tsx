@@ -15,6 +15,7 @@ export function Navbar() {
     const t = useTranslations("Navbar");
     const [activeSection, setActiveSection] = useState("#hero");
     const [scrolled, setScrolled] = useState(false);
+    const [mounted, setMounted] = useState(false);
     const { scrollY } = useScroll();
 
     useMotionValueEvent(scrollY, "change", (latest) => {
@@ -22,6 +23,7 @@ export function Navbar() {
     });
 
     useEffect(() => {
+        setMounted(true);
         const sectionMapping: Record<string, string> = {
             "hero": "#hero",
             "mission": "#hero",
@@ -144,48 +146,52 @@ export function Navbar() {
                             <FaWhatsapp className="w-5 h-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12" />
                             {t("contact")}
                         </a>
-                        <LanguageSwitcher />
+                        {mounted && <LanguageSwitcher />}
                     </div>
 
                     {/* Mobile Nav Button */}
                     <div className="md:hidden flex items-center gap-2">
-                        <LanguageSwitcher />
-                        <Sheet>
-                            <SheetTrigger asChild>
-                                <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 rounded-full" aria-label="Toggle menu">
-                                    <Menu className="h-5 w-5" />
-                                </Button>
-                            </SheetTrigger>
-                            <SheetContent side="top" className="h-full bg-black/95 backdrop-blur-2xl border-white/5 pt-20">
-                                <div className="flex flex-col items-center justify-center gap-8 h-full">
-                                    {navLinks.map((link) => (
+                        {mounted && <LanguageSwitcher />}
+                        {mounted ? (
+                            <Sheet>
+                                <SheetTrigger asChild>
+                                    <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 rounded-full" aria-label="Toggle menu">
+                                        <Menu className="h-5 w-5" />
+                                    </Button>
+                                </SheetTrigger>
+                                <SheetContent side="top" className="h-full bg-black/95 backdrop-blur-2xl border-white/5 pt-20">
+                                    <div className="flex flex-col items-center justify-center gap-8 h-full">
+                                        {navLinks.map((link) => (
+                                            <a
+                                                key={link.href}
+                                                href={link.href}
+                                                onClick={(e) => {
+                                                    scrollToSection(e, link.href);
+                                                }}
+                                                className="text-3xl font-bold tracking-tight text-white hover:text-emerald-400 transition-colors font-playfair"
+                                            >
+                                                {link.label}
+                                            </a>
+                                        ))}
                                         <a
-                                            key={link.href}
-                                            href={link.href}
-                                            onClick={(e) => {
-                                                scrollToSection(e, link.href);
-                                                // Sheet close logic would go here if accessible, 
-                                                // but standard Sheet component doesn't expose it easily in this pattern.
-                                                // We'll rely on the default behavior for now.
-                                            }}
-                                            className="text-3xl font-bold tracking-tight text-white hover:text-emerald-400 transition-colors font-playfair"
+                                            href="https://wa.me/351910908608"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="w-64 bg-emerald-500 hover:bg-emerald-400 text-black font-bold rounded-full py-6 text-lg uppercase tracking-wider mt-4 flex items-center justify-center gap-2 transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_20px_rgba(52,211,153,0.5)] active:scale-95 group"
                                         >
-                                            {link.label}
+                                            <FaWhatsapp className="w-6 h-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12" />
+                                            {t("contact")}
                                         </a>
-                                    ))}
-                                    <a
-                                        href="https://wa.me/351910908608"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="w-64 bg-emerald-500 hover:bg-emerald-400 text-black font-bold rounded-full py-6 text-lg uppercase tracking-wider mt-4 flex items-center justify-center gap-2 transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_20px_rgba(52,211,153,0.5)] active:scale-95 group"
-                                    >
-                                        <FaWhatsapp className="w-6 h-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12" />
-                                        {t("contact")}
-                                    </a>
-                                </div>
-                            </SheetContent>
-                        </Sheet>
+                                    </div>
+                                </SheetContent>
+                            </Sheet>
+                        ) : (
+                            <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 rounded-full" aria-label="Toggle menu">
+                                <Menu className="h-5 w-5" />
+                            </Button>
+                        )}
                     </div>
+
                 </div>
             </div>
         </nav>

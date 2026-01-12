@@ -7,7 +7,8 @@ import { useEffect, useState } from "react";
 
 export function Mission() {
     const t = useTranslations("Mission");
-    const [currentIndex, setCurrentIndex] = useState(0);
+    // Pagination logic: Toggle between page 0 and 1 (since we have 6 cards and show 3)
+    const [page, setPage] = useState(0);
     const [mounted, setMounted] = useState(false);
 
     const allCards = [
@@ -22,24 +23,13 @@ export function Mission() {
     useEffect(() => {
         setMounted(true);
         const interval = setInterval(() => {
-            setCurrentIndex((prev) => (prev + 1) % allCards.length);
+            setPage((prev) => (prev === 0 ? 1 : 0));
         }, 6000); // Rotate every 6 seconds
 
         return () => clearInterval(interval);
     }, []);
 
-    // Logic to determine which 3 cards to show based on currentIndex
-    // We want a sliding window: [i, i+1, i+2] wrapping around
-    const getVisibleCards = () => {
-        const cards = [];
-        for (let i = 0; i < 3; i++) {
-            const index = (currentIndex + i) % allCards.length;
-            cards.push(allCards[index]);
-        }
-        return cards;
-    };
-
-    const visibleCards = mounted ? getVisibleCards() : allCards.slice(0, 3);
+    const visibleCards = allCards.slice(page * 3, (page + 1) * 3);
 
     return (
         <section id="mission" className="py-24 md:py-32 bg-zinc-950 relative min-h-[80vh] flex items-center justify-center scroll-mt-24">
@@ -83,31 +73,33 @@ export function Mission() {
                 </div>
 
                 {/* Cards Container with AnimatePresence for smooth transitions */}
-                <div className="grid md:grid-cols-3 gap-8 relative min-h-[340px]">
-                    <AnimatePresence mode="popLayout">
-                        {visibleCards.map((card) => (
+                <div className="relative min-h-[340px]">
+                    <AnimatePresence mode="wait">
+                        {mounted && (
                             <motion.div
-                                key={card.key}
-                                layout
-                                initial={{ opacity: 0, x: 100, scale: 0.9 }}
-                                animate={{ opacity: 1, x: 0, scale: 1 }}
-                                exit={{ opacity: 0, x: -100, scale: 0.9 }}
-                                transition={{
-                                    duration: 0.6,
-                                    type: "spring",
-                                    bounce: 0.2
-                                }}
-                                className="bg-zinc-900/50 backdrop-blur-sm p-8 rounded-3xl border border-white/5 hover:border-emerald-500/0 transition-all group h-[340px] flex flex-col"
+                                key={page}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -20 }}
+                                transition={{ duration: 0.5 }}
+                                className="grid md:grid-cols-3 gap-8"
                             >
-                                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 text-2xl ${card.bg} ${card.color} group-hover:scale-110 transition-transform duration-300`}>
-                                    <card.icon className="w-7 h-7" />
-                                </div>
-                                <h3 className="text-2xl font-bold text-white mb-4">{t(`${card.key}_title`)}</h3>
-                                <p className="text-zinc-400 leading-relaxed text-sm">
-                                    {t(`${card.key}_desc`)}
-                                </p>
+                                {visibleCards.map((card) => (
+                                    <div
+                                        key={card.key}
+                                        className="bg-zinc-900/50 backdrop-blur-sm p-8 rounded-3xl border border-white/5 hover:border-emerald-500/0 transition-all group h-[340px] flex flex-col"
+                                    >
+                                        <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 text-2xl ${card.bg} ${card.color} group-hover:scale-110 transition-transform duration-300`}>
+                                            <card.icon className="w-7 h-7" />
+                                        </div>
+                                        <h3 className="text-2xl font-bold text-white mb-4">{t(`${card.key}_title`)}</h3>
+                                        <p className="text-zinc-400 leading-relaxed text-sm">
+                                            {t(`${card.key}_desc`)}
+                                        </p>
+                                    </div>
+                                ))}
                             </motion.div>
-                        ))}
+                        )}
                     </AnimatePresence>
                 </div>
             </div>

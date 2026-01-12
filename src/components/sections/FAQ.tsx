@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
@@ -45,18 +46,35 @@ export function FAQ() {
                 </div>
 
                 <div className="max-w-3xl mx-auto">
-                    <Accordion type="single" collapsible className="w-full space-y-4">
-                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((i) => (
-                            <AccordionItem key={i} value={`item-${i}`} className="border border-white/5 bg-white/5 px-6 rounded-lg data-[state=open]:border-emerald-500/30 transition-all overflow-hidden group">
-                                <AccordionTrigger className="text-lg font-medium hover:no-underline hover:text-emerald-400 text-white py-6 text-left">
-                                    {t(`q${i}`)}
-                                </AccordionTrigger>
-                                <AccordionContent className="text-zinc-400 leading-relaxed pb-6 text-base">
-                                    {t(`a${i}`)}
-                                </AccordionContent>
-                            </AccordionItem>
-                        ))}
-                    </Accordion>
+                    {(() => {
+                        const [mounted, setMounted] = useState(false);
+                        useEffect(() => setMounted(true), []);
+
+                        if (!mounted) {
+                            return (
+                                <div className="space-y-4">
+                                    {[1, 2, 3].map((i) => (
+                                        <div key={i} className="h-24 w-full bg-white/5 rounded-lg border border-white/5 animate-pulse" />
+                                    ))}
+                                </div>
+                            );
+                        }
+
+                        return (
+                            <Accordion type="single" collapsible className="w-full space-y-4">
+                                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((i) => (
+                                    <AccordionItem key={i} value={`item-${i}`} className="border border-white/5 bg-white/5 px-6 rounded-lg data-[state=open]:border-emerald-500/30 transition-all overflow-hidden group">
+                                        <AccordionTrigger className="text-lg font-medium hover:no-underline hover:text-emerald-400 text-white py-6 text-left">
+                                            {t(`q${i}`)}
+                                        </AccordionTrigger>
+                                        <AccordionContent className="text-zinc-400 leading-relaxed pb-6 text-base">
+                                            {t(`a${i}`)}
+                                        </AccordionContent>
+                                    </AccordionItem>
+                                ))}
+                            </Accordion>
+                        );
+                    })()}
                 </div>
             </div>
         </section>

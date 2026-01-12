@@ -149,22 +149,31 @@ export function Pricing() {
                                 </ul>
                             </CardContent>
                             <CardFooter className="flex flex-col items-center pb-6 relative z-10 px-6">
-                                <Button className={cn("w-full py-6 text-sm font-semibold uppercase tracking-[0.2em] transition-all duration-500 transform shadow-xl group relative overflow-hidden rounded-xl",
-                                    plan.popular
-                                        ? "bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-600 text-white shadow-[0_20px_40px_-15px_rgba(16,185,129,0.5)] hover:shadow-[0_30px_60px_-20px_rgba(16,185,129,0.7)] hover:-translate-y-1.5 border-0"
-                                        : "bg-zinc-900 hover:bg-zinc-800 text-emerald-400 border border-emerald-500/20 hover:border-emerald-500/40 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.2)]"
-                                )}>
-                                    <div className="flex items-center justify-center gap-3 relative z-10 transition-transform duration-500 ease-out">
-                                        <span className="tracking-[0.1em]">{t('cta')}</span>
-                                        <div className="flex items-center w-0 overflow-hidden group-hover:w-[130px] transition-all duration-500 ease-out opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0">
-                                            <span className="bg-white/20 text-white text-[10px] px-3 py-1 rounded-full whitespace-nowrap font-bold backdrop-blur-sm border border-white/10 shadow-lg">
-                                                {t('cta_discount')}
-                                            </span>
-                                        </div>
-                                    </div>
-                                    {/* Subtle internal shine effect */}
-                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shine pointer-events-none"></div>
-                                </Button>
+                                {(() => {
+                                    const message = t(`${plan.key}_msg`);
+                                    const whatsappUrl = `https://wa.me/351910908608?text=${encodeURIComponent(message)}`;
+
+                                    return (
+                                        <Button asChild className={cn("w-full py-6 text-sm font-semibold uppercase tracking-[0.2em] transition-all duration-500 transform shadow-xl group relative overflow-hidden rounded-xl",
+                                            plan.popular
+                                                ? "bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-600 text-white shadow-[0_20px_40px_-15px_rgba(16,185,129,0.5)] hover:shadow-[0_30px_60px_-20px_rgba(16,185,129,0.7)] hover:-translate-y-1.5 border-0"
+                                                : "bg-zinc-900 hover:bg-zinc-800 text-emerald-400 border border-emerald-500/20 hover:border-emerald-500/40 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.2)]"
+                                        )}>
+                                            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                                                <div className="flex items-center justify-center gap-3 relative z-10 transition-transform duration-500 ease-out">
+                                                    <span className="tracking-[0.1em]">{t('cta')}</span>
+                                                    <div className="flex items-center w-0 overflow-hidden group-hover:w-[130px] transition-all duration-500 ease-out opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0">
+                                                        <span className="bg-white/20 text-white text-[10px] px-3 py-1 rounded-full whitespace-nowrap font-bold backdrop-blur-sm border border-white/10 shadow-lg">
+                                                            {t('cta_discount')}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                {/* Subtle internal shine effect */}
+                                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shine pointer-events-none"></div>
+                                            </a>
+                                        </Button>
+                                    );
+                                })()}
                                 <div className="mt-3 flex items-center justify-center gap-1.5 transition-opacity cursor-help font-medium text-zinc-400">
                                     <ShieldCheck className="w-3 h-3 text-emerald-500 shrink-0" />
                                     <span className="text-[10px] text-center">{t('guarantee')}</span>

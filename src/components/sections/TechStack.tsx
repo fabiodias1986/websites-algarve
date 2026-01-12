@@ -76,7 +76,7 @@ export function TechStack() {
                             </div>
 
                             {/* Main Metric Visualization */}
-                            <div className="grid grid-cols-3 gap-4 mb-8">
+                            <div className="grid grid-cols-3 gap-2 mb-6">
                                 {[
                                     { label: "LCP", value: "0.8s", desc: t('cwv_lcp') },
                                     { label: "FID", value: "0ms", desc: t('cwv_fid') },
@@ -85,7 +85,7 @@ export function TechStack() {
                                     <div key={i} className="bg-black/20 rounded-2xl p-4 border border-white/5 text-center">
                                         <div className="text-emerald-400 font-mono text-xl font-bold mb-1">{metric.value}</div>
                                         <div className="text-white font-bold text-sm mb-1">{metric.label}</div>
-                                        <div className="text-[10px] text-zinc-500 leading-tight">{metric.desc}</div>
+                                        <div className="text-[10px] text-zinc-500 leading-tight hidden md:block">{metric.desc}</div>
                                     </div>
                                 ))}
                             </div>

@@ -16,7 +16,7 @@
         "rights": "All rights reserved."
     },
     "Hero": {
-        "title": "Premium Websites <break></break> in <highlight>Algarve</highlight>",
+        "title": "Lead the <break></break> <highlight>Ranking</highlight>",
         "subtitle": "We build modern, Google-optimized websites, integrating AI to transform your digital presence into a conversion machine.",
         "cta_portfolio": "Free Analysis",
         "cta_plan": "Dominate Google",
@@ -109,8 +109,10 @@
         "online_discount": "ONLINE PAYMENT -10%",
         "landing_page": "One Page Website",
         "landing_page_desc": "Complete and direct solution. Everything you need in one page.",
+        "landing_page_msg": "Hello! 👋 I am interested in the One Page Website package. I would like to know how I can activate the 10% discount and proceed with the project.",
         "business_site": "Full Professional Website",
         "business_site_desc": "For businesses that want to dominate the market.",
+        "business_site_msg": "Hello! 👋 I am interested in the Complete Professional Website solution for my company. I would like to know the requirements to get the 10% discount on the award.",
         "essential_1": "Single Conversion Structure (Sales Focus)",
         "essential_2": "Native Next.js Speed (Instant Load)",
         "essential_3": "Sales-Focused Copywriting for Local Market",
@@ -248,9 +250,17 @@
         "a11": "Total transparency: the amounts of €350 or €650 are fixed for construction. The €50 monthly fee covers everything necessary for the site to be online, secure (SSL included), and ultra-fast. There are no hidden fees or abusive annual renewals."
     },
     "Footer": {
+        "slogan": "Helping Algarve businesses dominate the digital world with high-performance websites and AI integration.",
+        "contacts": {
+            "title": "Contacts",
+            "phone": "Mobile",
+            "email": "Email",
+            "whatsapp": "WhatsApp"
+        },
         "rights": "All rights reserved.",
         "privacy": "Privacy",
-        "terms": "Terms"
+        "terms": "Terms",
+        "cookies": "Cookie Policy"
     },
     "FinalCTA": {
         "title": "Don't Be <break></break> <highlight>Invisible</highlight>",

@@ -2,18 +2,18 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Twitter, Instagram, Linkedin, Facebook } from "lucide-react";
+import { Twitter, Instagram, Linkedin, Facebook, Mail, Phone, MessageCircle } from "lucide-react";
 
 export function Footer() {
-    const t = useTranslations("Navbar"); // Reusing navbar links for simplicity or create new scope
+    const t = useTranslations("Footer"); // Reusing navbar links for simplicity or create new scope
     const currentYear = new Date().getFullYear();
 
     return (
         <footer className="bg-zinc-950 border-t border-white/10 pt-16 pb-8">
             <div className="container mx-auto px-4">
-                <div className="grid md:grid-cols-4 gap-12 mb-12">
-                    {/* Brand */}
-                    <div className="col-span-1 md:col-span-2 space-y-4">
+                <div className="grid md:grid-cols-3 gap-12 mb-12">
+                    {/* Brand & Socials */}
+                    <div className="space-y-4">
                         <Link href="/" className="flex items-center gap-3 group">
                             <div className="relative w-14 h-14 transition-transform duration-300 group-hover:rotate-12 flex items-center justify-center">
                                 <img
@@ -23,18 +23,16 @@ export function Footer() {
                                 />
                             </div>
                             <span className="text-2xl font-bold tracking-tighter font-geist text-white">
-                                WEBSITES<span className="text-white/50"> ALGARVE</span>
+                                WEBSITES<span className="text-emerald-400"> ALGARVE</span>
                             </span>
                         </Link>
                         <p className="text-muted-foreground max-w-sm">
-                            Helping Algarve businesses dominate the digital world with high-performance websites and AI integration.
+                            {t('slogan')}
                         </p>
                         <div className="flex gap-4 pt-4">
                             {[
-                                { icon: Twitter, name: "Twitter" },
                                 { icon: Instagram, name: "Instagram" },
-                                { icon: Linkedin, name: "LinkedIn" },
-                                { icon: Facebook, name: "Facebook" }
+                                { icon: Linkedin, name: "LinkedIn" }
                             ].map((social, i) => (
                                 <a
                                     key={i}
@@ -48,33 +46,38 @@ export function Footer() {
                         </div>
                     </div>
 
+                    {/* Contacts */}
                     <div>
-                        <h4 className="font-bold text-white mb-6">Menu</h4>
-                        <ul className="space-y-4">
-                            {[
-                                { key: 'home', href: '#hero' },
-                                { key: 'performance', href: '#performance' },
-                                { key: 'seo', href: '#seo' },
-                                { key: 'benchmarks', href: '#comparison' },
-                                { key: 'process', href: '#process' },
-                                { key: 'pricing', href: '#pricing' },
-                            ].map((link) => (
-                                <li key={link.key}>
-                                    <Link href={link.href} className="text-muted-foreground hover:text-white transition-colors capitalize">
-                                        {t(link.key)}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
+                        <h4 className="font-bold text-white mb-6">{t('contacts.title')}</h4>
+                        <div className="flex flex-col gap-4">
+                            <a href="tel:+351910908608" className="flex items-center gap-3 text-muted-foreground hover:text-white transition-colors group">
+                                <span className="w-8 h-8 rounded bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
+                                    <Phone className="w-4 h-4" />
+                                </span>
+                                <span>+351 910 908 608</span>
+                            </a>
+                            <a href="https://wa.me/351910908608" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-muted-foreground hover:text-white transition-colors group">
+                                <span className="w-8 h-8 rounded bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
+                                    <MessageCircle className="w-4 h-4" />
+                                </span>
+                                <span>WhatsApp</span>
+                            </a>
+                            <a href="mailto:hello@websitesalgarve.pt" className="flex items-center gap-3 text-muted-foreground hover:text-white transition-colors group">
+                                <span className="w-8 h-8 rounded bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
+                                    <Mail className="w-4 h-4" />
+                                </span>
+                                <span>hello@websitesalgarve.pt</span>
+                            </a>
+                        </div>
                     </div>
 
                     {/* Legal */}
                     <div>
                         <h4 className="font-bold text-white mb-6">Legal</h4>
                         <ul className="space-y-4">
-                            <li><Link href="#" className="text-muted-foreground hover:text-white transition-colors">Privacy Policy</Link></li>
-                            <li><Link href="#" className="text-muted-foreground hover:text-white transition-colors">Terms of Service</Link></li>
-                            <li><Link href="#" className="text-muted-foreground hover:text-white transition-colors">Cookie Policy</Link></li>
+                            <li><Link href="#" className="text-muted-foreground hover:text-white transition-colors">{t('privacy')}</Link></li>
+                            <li><Link href="#" className="text-muted-foreground hover:text-white transition-colors">{t('terms')}</Link></li>
+                            <li><Link href="#" className="text-muted-foreground hover:text-white transition-colors">{t('cookies')}</Link></li>
                         </ul>
                     </div>
                 </div>
