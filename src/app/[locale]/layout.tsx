@@ -21,10 +21,73 @@ const outfit = Outfit({
     subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-    title: "Websites Algarve - Performance Digital",
-    description: "Websites de Alta Performance que Dominam o Mercado do Algarve.",
-};
+import { getTranslations } from 'next-intl/server';
+
+export async function generateMetadata({
+    params
+}: {
+    params: Promise<{ locale: string }>;
+}) {
+    const { locale } = await params;
+    const t = await getTranslations({ locale, namespace: 'Metadata' });
+
+    const baseUrl = 'https://websitesalgarve.pt';
+    const currentUrl = locale === 'pt' ? baseUrl : `${baseUrl}/${locale}`;
+
+    return {
+        title: t('title'),
+        description: t('description'),
+        keywords: t('keywords'),
+        authors: [{ name: 'Websites Algarve' }],
+        creator: 'Websites Algarve',
+        publisher: 'Websites Algarve',
+        robots: {
+            index: true,
+            follow: true,
+            googleBot: {
+                index: true,
+                follow: true,
+                'max-video-preview': -1,
+                'max-image-preview': 'large',
+                'max-snippet': -1,
+            },
+        },
+        alternates: {
+            canonical: currentUrl,
+            languages: {
+                'pt': `${baseUrl}`,
+                'en': `${baseUrl}/en`,
+                'es': `${baseUrl}/es`,
+                'fr': `${baseUrl}/fr`,
+                'de': `${baseUrl}/de`,
+            },
+        },
+        openGraph: {
+            title: t('title'),
+            description: t('description'),
+            url: currentUrl,
+            siteName: 'Websites Algarve',
+            locale: locale,
+            type: 'website',
+            images: [
+                {
+                    url: `${baseUrl}/images/og-image.jpg`, // Ensure this image exists or use a variable
+                    width: 1200,
+                    height: 630,
+                    alt: t('title'),
+                },
+            ],
+            alternateLocales: ['pt', 'en', 'es', 'fr', 'de'].filter((l) => l !== locale),
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: t('title'),
+            description: t('description'),
+            creator: '@websitesalgarve', // Placeholder if no handle
+            images: [`${baseUrl}/images/twitter-image.jpg`], // Ensure this image exists
+        },
+    };
+}
 
 export default async function LocaleLayout({
     children,

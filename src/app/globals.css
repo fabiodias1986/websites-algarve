@@ -6,6 +6,7 @@
 @theme inline {
   --color-background: hsl(var(--background));
   --font-playfair: var(--font-playfair);
+  --font-geist: var(--font-geist-sans);
   --color-foreground: hsl(var(--foreground));
   --color-card: hsl(var(--card));
   --color-card-foreground: hsl(var(--card-foreground));

@@ -14,8 +14,17 @@ export function Footer() {
                 <div className="grid md:grid-cols-4 gap-12 mb-12">
                     {/* Brand */}
                     <div className="col-span-1 md:col-span-2 space-y-4">
-                        <Link href="/" className="text-2xl font-bold tracking-tighter font-playfair text-white">
-                            WEBSITES<span className="text-white/50"> ALGARVE</span>
+                        <Link href="/" className="flex items-center gap-3 group">
+                            <div className="relative w-14 h-14 transition-transform duration-300 group-hover:rotate-12 flex items-center justify-center">
+                                <img
+                                    src="/logo2.svg"
+                                    alt="Websites Algarve Logo"
+                                    className="w-full h-full object-contain"
+                                />
+                            </div>
+                            <span className="text-2xl font-bold tracking-tighter font-geist text-white">
+                                WEBSITES<span className="text-white/50"> ALGARVE</span>
+                            </span>
                         </Link>
                         <p className="text-muted-foreground max-w-sm">
                             Helping Algarve businesses dominate the digital world with high-performance websites and AI integration.

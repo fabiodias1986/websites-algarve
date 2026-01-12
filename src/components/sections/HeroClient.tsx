@@ -7,7 +7,7 @@ export function HeroClient() {
         <motion.div
             initial={{ opacity: 0, scale: 0.8, rotateX: 20, rotateY: -20 }}
             animate={{ opacity: 1, scale: 1, rotateX: 10, rotateY: -15 }}
-            transition={{ duration: 1, delay: 0.05, type: "spring" }}
+            transition={{ duration: 1, delay: 0.2, type: "spring" }}
             className="relative perspective-1000 group"
         >
             {/* Floating effect container */}
