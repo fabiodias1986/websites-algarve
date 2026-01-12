@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Rocket } from "lucide-react";
 import { HeroClient } from "./HeroClient";
-import { motion } from "framer-motion";
+
 
 export function Hero() {
     const t = useTranslations("Hero");
@@ -27,11 +27,7 @@ export function Hero() {
 
                 {/* Text Content */}
                 <div className="space-y-8 relative z-20 text-center md:text-left">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0 }}
-                    >
+                    <div className="opacity-0 animate-fade-in-up [animation-delay:0ms]">
                         <h1 className="text-6xl leading-[0.9] md:text-7xl lg:text-8xl font-bold font-playfair tracking-tighter text-balance">
                             {t.rich('title', {
                                 highlight: (chunks) => <span className="text-white relative inline-block">
@@ -41,23 +37,13 @@ export function Hero() {
                                 break: () => <br className="md:hidden" />
                             })}
                         </h1>
-                    </motion.div>
+                    </div>
 
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.1 }}
-                        className="text-lg md:text-xl text-muted-foreground max-w-xl font-light leading-relaxed text-balance mx-auto md:mx-0"
-                    >
+                    <p className="text-lg md:text-xl text-muted-foreground max-w-xl font-light leading-relaxed text-balance mx-auto md:mx-0 opacity-0 animate-fade-in-up [animation-delay:100ms]">
                         {t('subtitle')}
-                    </motion.p>
+                    </p>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        className="flex flex-col sm:flex-row gap-4 pt-4 items-center md:items-start justify-center md:justify-start"
-                    >
+                    <div className="flex flex-col sm:flex-row gap-4 pt-4 items-center md:items-start justify-center md:justify-start opacity-0 animate-fade-in-up [animation-delay:200ms]">
                         <a
                             href={`https://wa.me/351910908608?text=${encodeURIComponent(t('cta_plan_message'))}`}
                             target="_blank"
@@ -77,7 +63,7 @@ export function Hero() {
                         >
                             {t('cta_portfolio')}
                         </a>
-                    </motion.div>
+                    </div>
                 </div>
 
                 {/* 3D Mockup Visual */}

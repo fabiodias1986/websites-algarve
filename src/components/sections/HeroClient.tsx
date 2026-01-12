@@ -1,21 +1,8 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 export function HeroClient() {
     return (
-        <motion.div
-            initial={{ opacity: 0, scale: 0.8, rotateX: 20, rotateY: -20 }}
-            animate={{ opacity: 1, scale: 1, rotateX: 10, rotateY: -15 }}
-            transition={{ duration: 0.5, delay: 0.2, type: "spring" }}
-            className="relative perspective-1000 group"
-        >
+        <div className="relative perspective-1000 group animate-zoom-in-3d">
             {/* Floating effect container */}
-            <motion.div
-                animate={{ y: [0, -20, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="relative transform-style-3d rotate-y-[-12deg] rotate-x-[10deg] shadow-2xl rounded-xl border border-white/10 bg-gradient-to-br from-slate-900 to-black p-4"
-            >
+            <div className="relative transform-style-3d shadow-2xl rounded-xl border border-white/10 bg-gradient-to-br from-slate-900 to-black p-4 animate-float">
                 {/* Visual Representation of a "Machine" / High Perf Site */}
                 <div className="aspect-[16/10] rounded-lg overflow-hidden bg-slate-950 relative border border-white/5 flex flex-col">
                     {/* Browser Header */}
@@ -53,12 +40,7 @@ export function HeroClient() {
                         </div>
 
                         {/* Floating Performance Badge Overlay */}
-                        <motion.div
-                            initial={{ scale: 0, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            transition={{ delay: 1, type: "spring" }}
-                            className="absolute bottom-4 right-4 bg-zinc-900/90 backdrop-blur-md border border-emerald-500/30 p-2 rounded-lg flex items-center gap-3 shadow-2xl z-20"
-                        >
+                        <div className="absolute bottom-4 right-4 bg-zinc-900/90 backdrop-blur-md border border-emerald-500/30 p-2 rounded-lg flex items-center gap-3 shadow-2xl z-20 opacity-0 animate-zoom-in-3d [animation-delay:1s]">
                             <div className="relative w-10 h-10 flex items-center justify-center">
                                 <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
                                     <path className="text-emerald-900" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" strokeWidth="4" />
@@ -70,13 +52,13 @@ export function HeroClient() {
                                 <div className="font-bold text-white">Performance</div>
                                 <div className="text-emerald-400">Perfect Score</div>
                             </div>
-                        </motion.div>
+                        </div>
                     </div>
 
                     {/* Glow */}
                     <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-cyan-500 opacity-20 blur-3xl"></div>
                 </div>
-            </motion.div>
-        </motion.div>
+            </div>
+        </div>
     );
 }
