@@ -42,7 +42,7 @@ export function SectorExpertise() {
             <div className="container mx-auto px-4 relative z-10">
 
                 <div className="mb-20">
-                    <h2 className="text-3xl md:text-6xl font-bold font-playfair text-white mb-3 md:mb-6 text-balance">
+                    <h2 className="text-4xl md:text-6xl font-bold font-playfair leading-[1.1] text-white mb-3 md:mb-6 text-balance">
                         {t('title')}
                     </h2>
                     <div className="h-1 w-24 bg-zinc-800"></div>

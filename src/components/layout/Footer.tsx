@@ -26,7 +26,7 @@ export function Footer() {
                                 WEBSITES<span className="text-emerald-400"> ALGARVE</span>
                             </span>
                         </Link>
-                        <p className="text-muted-foreground max-w-sm">
+                        <p className="text-base text-muted-foreground max-w-sm">
                             {t('slogan')}
                         </p>
                         <div className="flex gap-4 pt-4">
@@ -50,23 +50,21 @@ export function Footer() {
                     <div>
                         <h4 className="font-bold text-white mb-6">{t('contacts.title')}</h4>
                         <div className="flex flex-col gap-4">
-                            <a href="tel:+351910908608" className="flex items-center gap-3 text-muted-foreground hover:text-white transition-colors group">
-                                <span className="w-8 h-8 rounded bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
-                                    <Phone className="w-4 h-4" />
-                                </span>
-                                <span>+351 910 908 608</span>
-                            </a>
+                            <div>
+                                <a href="tel:+351910908608" className="flex items-center gap-3 text-muted-foreground hover:text-white transition-colors group">
+                                    <span className="w-8 h-8 rounded bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
+                                        <Phone className="w-4 h-4" />
+                                    </span>
+                                    <span>+351 910 908 608</span>
+                                </a>
+                                <p className="text-[10px] text-zinc-500 ml-11 mt-1">{t('contacts.call_cost')}</p>
+                            </div>
+
                             <a href="https://wa.me/351910908608" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-muted-foreground hover:text-white transition-colors group">
                                 <span className="w-8 h-8 rounded bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
                                     <MessageCircle className="w-4 h-4" />
                                 </span>
                                 <span>WhatsApp</span>
-                            </a>
-                            <a href="mailto:hello@websitesalgarve.pt" className="flex items-center gap-3 text-muted-foreground hover:text-white transition-colors group">
-                                <span className="w-8 h-8 rounded bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
-                                    <Mail className="w-4 h-4" />
-                                </span>
-                                <span>hello@websitesalgarve.pt</span>
                             </a>
                         </div>
                     </div>
@@ -75,9 +73,17 @@ export function Footer() {
                     <div>
                         <h4 className="font-bold text-white mb-6">Legal</h4>
                         <ul className="space-y-4">
-                            <li><Link href="#" className="text-muted-foreground hover:text-white transition-colors">{t('privacy')}</Link></li>
-                            <li><Link href="#" className="text-muted-foreground hover:text-white transition-colors">{t('terms')}</Link></li>
-                            <li><Link href="#" className="text-muted-foreground hover:text-white transition-colors">{t('cookies')}</Link></li>
+                            <li><Link href="/privacy" className="text-muted-foreground hover:text-white transition-colors">{t('privacy')}</Link></li>
+                            <li><Link href="/terms" className="text-muted-foreground hover:text-white transition-colors">{t('terms')}</Link></li>
+                            <li><Link href="/cookies" className="text-muted-foreground hover:text-white transition-colors">{t('cookies')}</Link></li>
+                            <li>
+                                <button
+                                    onClick={() => window.dispatchEvent(new Event("reset-consent"))}
+                                    className="text-muted-foreground hover:text-emerald-400 transition-colors text-left"
+                                >
+                                    Reset Cookies
+                                </button>
+                            </li>
                         </ul>
                     </div>
                 </div>

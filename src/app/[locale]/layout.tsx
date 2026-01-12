@@ -5,6 +5,8 @@ import { getMessages } from 'next-intl/server';
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { ConsentModal } from "@/components/legal/ConsentModal";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -88,6 +90,9 @@ export async function generateMetadata({
             creator: '@websitesalgarve', // Placeholder if no handle
             images: [`${baseUrl}/images/twitter-image.jpg`], // Ensure this image exists
         },
+        verification: {
+            google: '6olK5u3RrUAYu-T2RanJ5rj8eircfTmAcSkIGTbuqBs',
+        },
     };
 }
 
@@ -113,6 +118,8 @@ export default async function LocaleLayout({
                         {children}
                     </main>
                     <Footer />
+                    <ConsentModal />
+                    <GoogleAnalytics />
                 </NextIntlClientProvider>
             </body>
         </html>
