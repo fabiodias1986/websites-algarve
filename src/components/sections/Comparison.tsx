@@ -1,8 +1,9 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useState, useRef, useEffect } from "react";
-import { MoveHorizontal, Menu, Check } from "lucide-react";
+import Image from "next/image";
+import { useState, useRef } from "react";
+import { MoveHorizontal, Menu } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function Comparison() {
@@ -17,7 +18,6 @@ export function Comparison() {
     const isSynchingLeft = useRef(false);
     const isSynchingRight = useRef(false);
 
-    // Sync Scrolling
     const handleScroll = (source: 'left' | 'right') => {
         const left = leftScrollRef.current;
         const right = rightScrollRef.current;
@@ -49,9 +49,6 @@ export function Comparison() {
     };
 
     const handleTouchMove = (e: React.TouchEvent) => {
-        // Prevent default browser behavior (navigating back/forward) only if we are dragging
-        // Note: touch-action: pan-y in CSS is the primary fix, but this adds a layer of safety if supported
-        // e.preventDefault() might be ignored if the listener is passive, but we trust CSS touch-action.
         handleMove(e.touches[0].clientX);
     };
 
@@ -63,7 +60,7 @@ export function Comparison() {
 
     return (
         <section id="comparison" className="py-24 md:py-32 bg-zinc-950 relative overflow-hidden scroll-mt-24">
-            {/* Background Gradient from Hero */}
+            {/* Background Gradient */}
             <div className="absolute inset-0 opacity-20 pointer-events-none">
                 <svg className="w-full h-full overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
                     <defs>
@@ -78,6 +75,7 @@ export function Comparison() {
                     <path d="M-20,60 Q25,10 50,60 T120,60" stroke="#8b5cf6" strokeWidth="0.2" fill="none" className="animate-pulse" style={{ animationDelay: "2s" }} />
                 </svg>
             </div>
+
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-16 max-w-3xl mx-auto">
                     <motion.div
@@ -104,7 +102,7 @@ export function Comparison() {
                 <div
                     ref={containerRef}
                     className="relative w-full max-w-5xl mx-auto h-[600px] md:h-[700px] rounded-2xl overflow-hidden cursor-ew-resize select-none border border-white/10 shadow-2xl bg-black touch-pan-y"
-                    style={{ touchAction: 'pan-y' }} // Explicit inline style to ensure browser respects it
+                    style={{ touchAction: 'pan-y' }}
                     onMouseDown={() => isDragging.current = true}
                     onMouseUp={() => isDragging.current = false}
                     onMouseLeave={() => isDragging.current = false}
@@ -112,20 +110,14 @@ export function Comparison() {
                     onTouchMove={handleTouchMove}
                     onClick={(e) => handleMove(e.clientX)}
                 >
-                    {/* ... (rest of the component logic remains strictly same, just container className updated above) ... */}
 
-
-                    {/* ==============================================
-                        RIGHT SIDE (PREMIUM / AFTER) - SCROLLABLE
-                       ============================================== */}
+                    {/* RIGHT SIDE (PREMIUM / AFTER) */}
                     <div
                         ref={rightScrollRef}
                         onScroll={() => handleScroll('right')}
                         className="absolute inset-0 bg-zinc-950 flex flex-col overflow-hidden md:overflow-y-auto no-scrollbar touch-pan-y"
                         style={{ touchAction: 'pan-y' }}
                     >
-
-                        {/* Premium Header */}
                         <div className="sticky top-0 z-10 py-4 md:py-6 border-b border-white/5 flex items-center justify-between px-4 md:px-8 bg-black/50 backdrop-blur-md">
                             <span className="font-playfair text-lg md:text-xl font-bold text-white tracking-widest">ALGARVE ESTATES</span>
                             <div className="flex gap-8 text-xs font-mono text-zinc-400 uppercase tracking-widest hidden md:flex">
@@ -138,15 +130,15 @@ export function Comparison() {
                             </div>
                         </div>
 
-                        {/* Premium Content Wrapper */}
                         <div className="flex-col min-h-[100%] md:min-h-[150vh]">
-
-                            {/* Premium Hero - Refined Design */}
                             <div className="relative h-full md:h-[500px] flex-1 w-full bg-zinc-900 group overflow-hidden flex flex-col justify-center">
-                                <div
-                                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
-                                    style={{ backgroundImage: "url('/images/premium_villa.png')" }}
-                                ></div>
+                                <Image
+                                    src="/images/premium_villa.png"
+                                    alt="Premium Villa"
+                                    fill
+                                    className="object-cover transition-transform duration-700 hover:scale-105"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                />
                                 <div className="absolute inset-0 bg-black/30"></div>
                                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
 
@@ -194,12 +186,8 @@ export function Comparison() {
                                 </div>
                             </div>
 
-                            {/* Premium Content Body (Only visible on Desktop or if scroll allowed) */}
                             <div className="bg-black py-20 px-12 space-y-16 hidden md:block">
-
-                                {/* About Us Section */}
                                 <div className="space-y-6">
-
                                     <motion.p
                                         initial={{ opacity: 0 }}
                                         whileInView={{ opacity: 1 }}
@@ -223,7 +211,6 @@ export function Comparison() {
                                     </motion.p>
                                 </div>
 
-                                {/* Services Section ("Our Services") */}
                                 <div className="space-y-6">
                                     <motion.p
                                         initial={{ opacity: 0 }}
@@ -252,11 +239,8 @@ export function Comparison() {
                                         ))}
                                     </div>
                                 </div>
-
                             </div>
 
-
-                            {/* Premium Footer */}
                             <div className="bg-zinc-900 border-t border-white/5 py-12 px-12">
                                 <div className="flex justify-between items-center opacity-60 hover:opacity-100 transition-opacity duration-500">
                                     <span className="font-playfair text-white text-lg">LUXURY ESTATES</span>
@@ -266,15 +250,12 @@ export function Comparison() {
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
 
-                    {/* ==============================================
-                        LEFT SIDE (STANDARD / AVERAGE) - SCROLLABLE
-                       ============================================== */}
+                    {/* LEFT SIDE (STANDARD / AVERAGE) */}
                     <div
-                        className="absolute inset-0 z-20 overflow-hidden pointer-events-none" // Increased Z-Index to overlap Premium
+                        className="absolute inset-0 z-20 overflow-hidden pointer-events-none"
                         style={{ clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)` }}
                     >
                         <div
@@ -283,7 +264,6 @@ export function Comparison() {
                             className="bg-[#f0f0f0] w-full h-full overflow-hidden md:overflow-y-auto pointer-events-auto border-r-4 border-white font-sans no-scrollbar touch-pan-y"
                             style={{ touchAction: 'pan-y' }}
                         >
-                            {/* Standard Header - 2005 Style */}
                             <div className="sticky top-0 z-50 h-20 bg-[#000080] border-b-4 border-[#0000FF] flex items-center justify-between px-6">
                                 <div className="flex items-center gap-2">
                                     <div className="w-8 h-8 bg-red-600 border border-white"></div>
@@ -296,18 +276,18 @@ export function Comparison() {
                                 </div>
                             </div>
 
-                            {/* Standard Content Wrapper */}
                             <div className="flex-col min-h-[150vh]">
-
-                                {/* Standard Hero */}
                                 <div className="relative h-[500px] flex flex-col justify-center items-center text-center p-8 bg-white border-b-4 border-black">
-                                    <div
-                                        className="absolute inset-0 bg-cover bg-center opacity-80"
+                                    <Image
+                                        src="/images/standard_house.png"
+                                        alt="Standard House"
+                                        fill
+                                        className="object-cover opacity-80"
                                         style={{
-                                            backgroundImage: "url('/images/standard_house.png')",
                                             filter: "contrast(1.2) saturation(1.5)"
                                         }}
-                                    ></div>
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                    />
                                     <div className="max-w-md w-full bg-[#E0E0E0]/90 p-6 border-2 border-black space-y-4 text-center relative z-10 shadow-none">
                                         <div className="text-3xl font-arial text-[#0000FF] font-bold uppercase underline decoration-2">
                                             VILLAS FOR SALE
@@ -322,7 +302,6 @@ export function Comparison() {
                                     </div>
                                 </div>
 
-                                {/* Standard Text Wall */}
                                 <div className="bg-white p-8 border-b border-gray-400">
                                     <div className="text-xl font-arial font-bold text-black border-b border-black mb-4 inline-block">About Us</div>
                                     <p className="text-black font-times text-sm leading-relaxed text-justify">
@@ -334,7 +313,6 @@ export function Comparison() {
                                     </p>
                                 </div>
 
-                                {/* Standard Bullets */}
                                 <div className="bg-[#EFEFEF] p-8">
                                     <div className="text-xl font-arial font-bold text-black mb-4">Our Services:</div>
                                     <ul className="list-disc pl-6 text-black font-arial text-sm space-y-1">
@@ -346,7 +324,6 @@ export function Comparison() {
                                     </ul>
                                 </div>
 
-                                {/* Standard Footer */}
                                 <div className="bg-[#CCCCCC] p-8 text-center border-t border-black">
                                     <span className="font-arial font-bold text-black text-xs">Copyright 2005 Algarve Estates. All Rights Reserved.</span>
                                 </div>
