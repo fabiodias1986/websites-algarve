@@ -136,10 +136,12 @@ export function Navbar() {
                     {/* Actions */}
                     <div className="hidden md:flex items-center gap-4">
                         <a
-                            href="#contact"
-                            onClick={(e) => scrollToSection(e, '#contact')}
-                            className="bg-white text-black px-6 py-2.5 rounded-full text-sm font-bold hover:bg-zinc-200 transition-colors"
+                            href="https://wa.me/351910908608"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-[#25D366] hover:bg-[#128C7E] text-white px-6 py-2.5 rounded-full text-sm font-bold transition-colors flex items-center gap-2"
                         >
+                            <FaWhatsapp className="w-5 h-5" />
                             {t("contact")}
                         </a>
                         <LanguageSwitcher />
@@ -177,16 +179,15 @@ export function Navbar() {
                                             if (element) {
                                                 const offset = 80;
                                                 const bodyRect = document.body.getBoundingClientRect().top;
-                                                const elementRect = element.getBoundingClientRect().top;
-                                                const elementPosition = elementRect - bodyRect;
-                                                const offsetPosition = elementPosition - offset;
-                                                window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-                                            }
-                                        }}
-                                        className="w-64 bg-emerald-500 hover:bg-emerald-600 text-black font-bold rounded-full py-6 text-lg uppercase tracking-wider mt-4"
-                                    >
-                                        {t("contact")}
-                                    </Button>
+                                                <a
+                                                    href="https://wa.me/351910908608"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="w-64 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold rounded-full py-6 text-lg uppercase tracking-wider mt-4 flex items-center justify-center gap-2"
+                                                >
+                                                    <FaWhatsapp className="w-6 h-6" />
+                                                    {t("contact")}
+                                                </a>
                                 </div>
                             </SheetContent>
                         </Sheet>
