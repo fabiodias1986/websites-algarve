@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Globe } from "lucide-react";
 
+import { US, PT, ES, FR, DE } from 'country-flag-icons/react/3x2';
+
 export function LanguageSwitcher() {
     const locale = useLocale();
     const router = useRouter();
@@ -20,30 +22,38 @@ export function LanguageSwitcher() {
         router.replace(pathname, { locale: newLocale });
     };
 
-    const flags: Record<string, string> = {
-        pt: "🇵🇹",
-        en: "🇺🇸",
-        es: "🇪🇸",
-        fr: "🇫🇷",
-        de: "🇩🇪",
+    const flags = {
+        pt: <PT title="Português" className="w-5 h-5 rounded-[2px]" />,
+        en: <US title="English" className="w-5 h-5 rounded-[2px]" />,
+        es: <ES title="Español" className="w-5 h-5 rounded-[2px]" />,
+        fr: <FR title="Français" className="w-5 h-5 rounded-[2px]" />,
+        de: <DE title="Deutsch" className="w-5 h-5 rounded-[2px]" />,
     };
+
+    const CurrentFlag = flags[locale as keyof typeof flags];
 
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="rounded-full w-8 h-8 bg-white/5 hover:bg-white/10">
-                    <span className="text-lg">{flags[locale] || <Globe className="h-4 w-4" />}</span>
+                <Button variant="ghost" size="icon" className="rounded-full w-8 h-8 bg-white/5 hover:bg-white/10 transition-colors">
+                    {CurrentFlag || <Globe className="h-4 w-4 text-zinc-400" />}
                 </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="bg-[#0A0A0A] border-slate-800">
+            <DropdownMenuContent align="end" className="bg-zinc-950/90 backdrop-blur-xl border-white/10 p-1 min-w-[140px]">
                 {Object.entries(flags).map(([key, flag]) => (
                     <DropdownMenuItem
                         key={key}
                         onClick={() => handleLocaleChange(key)}
-                        className="cursor-pointer text-slate-200 hover:bg-slate-800 focus:bg-slate-800"
+                        className={`
+                            cursor-pointer flex items-center gap-3 px-3 py-2 rounded-md transition-colors
+                            ${locale === key ? 'bg-white/10 text-white' : 'text-zinc-400 hover:text-white hover:bg-white/5'}
+                        `}
                     >
-                        <span className="mr-2">{flag}</span>
-                        <span className="uppercase text-xs font-bold">{key}</span>
+                        {flag}
+                        <span className="uppercase text-xs font-bold tracking-wider">{key}</span>
+                        {locale === key && (
+                            <span className="ml-auto w-1.5 h-1.5 rounded-full bg-emerald-400 box-shadow-glow" />
+                        )}
                     </DropdownMenuItem>
                 ))}
             </DropdownMenuContent>

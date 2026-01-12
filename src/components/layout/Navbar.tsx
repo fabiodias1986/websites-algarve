@@ -89,125 +89,109 @@ export function Navbar() {
     };
 
     return (
-        <header className="fixed top-0 w-full z-50 px-4 pt-6 transition-all duration-300 pointer-events-none">
-            <nav
-                className={cn(
-                    "max-w-6xl mx-auto rounded-full border border-white/10 transition-all duration-500 pointer-events-auto",
-                    scrolled
-                        ? "bg-black/80 backdrop-blur-xl py-2 md:py-3 px-6 md:px-8 shadow-2xl shadow-emerald-500/10"
-                        : "bg-white/5 backdrop-blur-md py-3 md:py-4 px-6 md:px-10"
-                )}
-            >
+        <motion.nav
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.5 }}
+            className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled
+                    ? "bg-zinc-950/80 backdrop-blur-md border-b border-white/10 py-4"
+                    : "bg-transparent py-6 border-b border-transparent"
+                }`}
+        >
+            <div className="container mx-auto px-4 md:px-8">
                 <div className="flex items-center justify-between">
-                    {/* Logo */}
+                    {/* Brand */}
                     <Link
                         href="/"
-                        className="text-lg font-bold tracking-tighter font-playfair flex items-center gap-2 group"
+                        className="text-xl font-bold tracking-tighter font-playfair flex items-center gap-2 group"
                     >
-                        <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-emerald-400 to-cyan-400 flex items-center justify-center p-0.5 group-hover:rotate-12 transition-transform duration-300">
-                            <div className="w-full h-full bg-black rounded-[6px] flex items-center justify-center text-[10px] font-mono text-emerald-400">
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-cyan-400 flex items-center justify-center p-0.5 group-hover:rotate-12 transition-transform duration-300">
+                            <div className="w-full h-full bg-black rounded-[6px] flex items-center justify-center text-xs font-mono text-emerald-400">
                                 AW
                             </div>
                         </div>
-                        <span className="text-white hidden sm:inline-block">ALGARVE<span className="text-emerald-400"> WEBSITES</span></span>
+                        <span className="text-white">ALGARVE<span className="text-emerald-400"> WEBSITES</span></span>
                     </Link>
 
-                    {/* Desktop Nav */}
-                    <div className="hidden md:flex items-center gap-1">
-                        {navLinks.map((link) => (
-                            <a
-                                key={link.href}
-                                href={link.href}
-                                onClick={(e) => scrollToSection(e, link.href)}
-                                className={cn(
-                                    "px-5 py-2 text-[10px] font-bold uppercase tracking-[0.2em] font-playfair transition-colors relative group",
-                                    activeSection === link.href ? "text-emerald-400" : "text-zinc-400 hover:text-zinc-200"
-                                )}
-                            >
-                                {link.label}
-                                {activeSection === link.href && (
-                                    <motion.span
-                                        layoutId="active-nav-indicator"
-                                        className="absolute bottom-1 left-5 right-5 h-0.5 bg-emerald-400 shadow-[0_0_12px_rgba(16,185,129,1)]"
-                                        transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                                    />
-                                )}
-                            </a>
-                        ))}
-                        <div className="w-px h-6 bg-white/10 mx-4" />
-                        <LanguageSwitcher />
+                    {/* Desktop Navigation */}
+                    <div className="hidden md:flex items-center gap-1 rounded-full bg-white/5 border border-white/10 p-1.5 backdrop-blur-sm">
+                        {navLinks.map((link) => {
+                            const isActive = activeSection === link.href; // Changed from substring(1) to direct comparison
+                            return (
+                                <Link
+                                    key={link.href}
+                                    href={link.href}
+                                    onClick={(e) => scrollToSection(e, link.href)}
+                                    className={`relative px-5 py-2 text-sm font-medium transition-all duration-300 rounded-full ${isActive
+                                            ? "text-black bg-emerald-400"
+                                            : "text-zinc-400 hover:text-white hover:bg-white/5"
+                                        }`}
+                                >
+                                    {link.label}
+                                </Link>
+                            );
+                        })}
                     </div>
 
                     {/* Actions */}
-                    <div className="hidden md:block">
-                        <Button
-                            variant="default"
-                            size="sm"
-                            onClick={(e) => {
-                                const element = document.querySelector('#contact');
-                                if (element) {
-                                    const offset = 80;
-                                    const bodyRect = document.body.getBoundingClientRect().top;
-                                    const elementRect = element.getBoundingClientRect().top;
-                                    const elementPosition = elementRect - bodyRect;
-                                    const offsetPosition = elementPosition - offset;
-                                    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+                    const offsetPosition = elementPosition - offset;
+                    window.scrollTo({top: offsetPosition, behavior: "smooth" });
                                 }
                             }}
-                            className="bg-emerald-500 hover:bg-emerald-400 text-black font-bold rounded-full px-6 text-[10px] uppercase tracking-widest transition-all hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(16,185,129,0.3)]"
+                    className="bg-emerald-500 hover:bg-emerald-400 text-black font-bold rounded-full px-6 text-[10px] uppercase tracking-widest transition-all hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(16,185,129,0.3)]"
                         >
-                            {t("contact")}
-                        </Button>
-                    </div>
+                    {t("contact")}
+                </Button>
+            </div>
 
-                    {/* Mobile Nav Button */}
-                    <div className="md:hidden flex items-center gap-2">
-                        <LanguageSwitcher />
-                        <Sheet>
-                            <SheetTrigger asChild>
-                                <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 rounded-full">
-                                    <Menu className="h-5 w-5" />
-                                </Button>
-                            </SheetTrigger>
-                            <SheetContent side="top" className="h-full bg-black/95 backdrop-blur-2xl border-white/5 pt-20">
-                                <div className="flex flex-col items-center justify-center gap-8 h-full">
-                                    {navLinks.map((link) => (
-                                        <a
-                                            key={link.href}
-                                            href={link.href}
-                                            onClick={(e) => {
-                                                scrollToSection(e, link.href);
-                                                // Sheet close logic would go here if accessible, 
-                                                // but standard Sheet component doesn't expose it easily in this pattern.
-                                                // We'll rely on the default behavior for now.
-                                            }}
-                                            className="text-3xl font-bold tracking-tight text-white hover:text-emerald-400 transition-colors font-playfair"
-                                        >
-                                            {link.label}
-                                        </a>
-                                    ))}
-                                    <Button
-                                        onClick={(e) => {
-                                            const element = document.querySelector('#contact');
-                                            if (element) {
-                                                const offset = 80;
-                                                const bodyRect = document.body.getBoundingClientRect().top;
-                                                const elementRect = element.getBoundingClientRect().top;
-                                                const elementPosition = elementRect - bodyRect;
-                                                const offsetPosition = elementPosition - offset;
-                                                window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-                                            }
-                                        }}
-                                        className="w-64 bg-emerald-500 hover:bg-emerald-600 text-black font-bold rounded-full py-6 text-lg uppercase tracking-wider mt-4"
-                                    >
-                                        {t("contact")}
-                                    </Button>
-                                </div>
-                            </SheetContent>
-                        </Sheet>
-                    </div>
-                </div>
-            </nav>
-        </header>
+            {/* Mobile Nav Button */}
+            <div className="md:hidden flex items-center gap-2">
+                <LanguageSwitcher />
+                <Sheet>
+                    <SheetTrigger asChild>
+                        <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 rounded-full">
+                            <Menu className="h-5 w-5" />
+                        </Button>
+                    </SheetTrigger>
+                    <SheetContent side="top" className="h-full bg-black/95 backdrop-blur-2xl border-white/5 pt-20">
+                        <div className="flex flex-col items-center justify-center gap-8 h-full">
+                            {navLinks.map((link) => (
+                                <a
+                                    key={link.href}
+                                    href={link.href}
+                                    onClick={(e) => {
+                                        scrollToSection(e, link.href);
+                                        // Sheet close logic would go here if accessible, 
+                                        // but standard Sheet component doesn't expose it easily in this pattern.
+                                        // We'll rely on the default behavior for now.
+                                    }}
+                                    className="text-3xl font-bold tracking-tight text-white hover:text-emerald-400 transition-colors font-playfair"
+                                >
+                                    {link.label}
+                                </a>
+                            ))}
+                            <Button
+                                onClick={(e) => {
+                                    const element = document.querySelector('#contact');
+                                    if (element) {
+                                        const offset = 80;
+                                        const bodyRect = document.body.getBoundingClientRect().top;
+                                        const elementRect = element.getBoundingClientRect().top;
+                                        const elementPosition = elementRect - bodyRect;
+                                        const offsetPosition = elementPosition - offset;
+                                        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+                                    }
+                                }}
+                                className="w-64 bg-emerald-500 hover:bg-emerald-600 text-black font-bold rounded-full py-6 text-lg uppercase tracking-wider mt-4"
+                            >
+                                {t("contact")}
+                            </Button>
+                        </div>
+                    </SheetContent>
+                </Sheet>
+            </div>
+        </div>
+            </nav >
+        </header >
     );
 }
