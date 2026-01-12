@@ -22,7 +22,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-    title: "Algarve Websites - High-Performance",
+    title: "Websites Algarve - Performance Digital",
     description: "Websites de Alta Performance que Dominam o Mercado do Algarve.",
 };
 

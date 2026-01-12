@@ -95,7 +95,7 @@ export function Hero() {
                                 <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
                                 <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
                                 <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
-                                <div className="mx-auto w-1/2 h-4 rounded-full bg-white/5 text-[10px] flex items-center justify-center text-white/20 font-mono">algarve-premium.com</div>
+                                <div className="mx-auto w-1/2 h-4 rounded-full bg-white/5 text-[10px] flex items-center justify-center text-white/20 font-mono">websitesalgarve.pt</div>
                             </div>
 
                             {/* Website Mockup Content */}

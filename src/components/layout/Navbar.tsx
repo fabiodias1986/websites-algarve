@@ -111,7 +111,7 @@ export function Navbar() {
                                 AW
                             </div>
                         </div>
-                        <span className="text-white">ALGARVE<span className="text-emerald-400"> WEBSITES</span></span>
+                        <span className="text-white">WEBSITES<span className="text-emerald-400"> ALGARVE</span></span>
                     </Link>
 
                     {/* Desktop Navigation */}
