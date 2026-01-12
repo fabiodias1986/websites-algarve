@@ -90,10 +90,7 @@ export function Navbar() {
     };
 
     return (
-        <motion.nav
-            initial={{ y: -100 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.5 }}
+        <nav
             className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled
                 ? "bg-zinc-950/80 backdrop-blur-md border-b border-white/10 py-4"
                 : "bg-transparent py-6 border-b border-transparent"
@@ -189,6 +186,6 @@ export function Navbar() {
                     </div>
                 </div>
             </div>
-        </motion.nav>
+        </nav>
     );
 }
