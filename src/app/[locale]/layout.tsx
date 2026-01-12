@@ -39,11 +39,13 @@ export default async function LocaleLayout({
     return (
         <html lang={locale} className="dark" suppressHydrationWarning>
             <body
-                className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} antialiased bg-background text-foreground`}
+                className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} antialiased bg-background text-foreground flex flex-col min-h-screen`}
             >
                 <NextIntlClientProvider messages={messages}>
                     <Navbar />
-                    {children}
+                    <main className="flex-grow">
+                        {children}
+                    </main>
                     <Footer />
                 </NextIntlClientProvider>
             </body>
