@@ -192,7 +192,7 @@ export function Navbar() {
                         </Sheet>
                     </div>
                 </div>
-            </nav >
-        </header >
+            </div>
+        </motion.nav>
     );
 }
