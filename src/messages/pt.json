@@ -187,7 +187,7 @@
     },
     "SEOMasterclass": {
         "badge": "Decifrando o Algoritmo",
-        "title": "Lidere o <break></break> <highlight>Ranking</highlight>",
+        "title": "Lidere o <highlight>Ranking</highlight>",
         "description": "Imagine o Google como um bibliotecário cego e apressado. Ele não 'vê' o seu site, ele lê o código. Se o código for confuso ou lento, será ignorado.",
         "speed_title": "Velocidade (Core Web Vitals)",
         "speed_desc": "O Google penaliza qualquer site que demore mais de 2.5s a carregar. O nosso objetivo é 0.5s.",

@@ -49,7 +49,7 @@ export function FinalCTA() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="text-3xl md:text-7xl font-bold font-playfair text-white leading-[1.1] text-balance"
+                            className="text-4xl md:text-7xl font-bold font-playfair text-white leading-[1.1] text-balance"
                         >
                             {t.rich('title', {
                                 highlight: (chunks) => <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">{chunks}</span>,
