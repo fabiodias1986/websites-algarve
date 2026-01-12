@@ -135,7 +135,6 @@ export function Navbar() {
 
                     {/* Actions */}
                     <div className="hidden md:flex items-center gap-4">
-                        <LanguageSwitcher />
                         <a
                             href="#contact"
                             onClick={(e) => scrollToSection(e, '#contact')}
@@ -143,6 +142,7 @@ export function Navbar() {
                         >
                             {t("contact")}
                         </a>
+                        <LanguageSwitcher />
                     </div>
 
                     {/* Mobile Nav Button */}
