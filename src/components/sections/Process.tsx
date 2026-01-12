@@ -29,15 +29,25 @@ export function Process() {
             </div>
             <div className="container mx-auto px-4">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    className="mb-16 text-center"
+                    className="mb-16 md:mb-24 text-center max-w-4xl mx-auto"
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold font-playfair text-white mb-4">
-                        {t('title')}
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 backdrop-blur-md mb-4">
+                        <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                        <span className="text-sm font-mono text-emerald-400 uppercase tracking-widest">{t('badge')}</span>
+                    </div>
+
+                    <h2 className="text-[2.6rem] md:text-6xl font-bold mb-6 font-playfair leading-[1.1] text-white">
+                        {t.rich('title', {
+                            highlight: (chunks) => <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">{chunks}</span>,
+                            break: () => <br />
+                        })}
                     </h2>
-                    <p className="text-muted-foreground">{t('subtitle')}</p>
+                    <p className="text-xl text-zinc-400 font-light leading-relaxed max-w-2xl mx-auto">
+                        {t('subtitle')}
+                    </p>
                 </motion.div>
 
                 <div className="grid md:grid-cols-3 gap-8 relative">
