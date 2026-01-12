@@ -137,7 +137,7 @@ export function Comparison() {
                             <div className="relative h-[500px] w-full bg-zinc-900 group overflow-hidden">
                                 <div
                                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
-                                    style={{ backgroundImage: "url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80')" }}
+                                    style={{ backgroundImage: "url('/images/premium_villa.png')" }}
                                 ></div>
                                 <div className="absolute inset-0 bg-black/40"></div>
                                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
@@ -280,7 +280,7 @@ export function Comparison() {
                                     <div
                                         className="absolute inset-0 bg-cover bg-center opacity-80"
                                         style={{
-                                            backgroundImage: "url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80')",
+                                            backgroundImage: "url('/images/standard_house.png')",
                                             filter: "contrast(1.2) saturation(1.5)"
                                         }}
                                     ></div>
