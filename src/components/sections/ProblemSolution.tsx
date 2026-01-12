@@ -24,7 +24,7 @@ export function ProblemSolution() {
                     >
                         <div className="inline-flex items-center gap-2 text-red-500 mb-6">
                             <AlertTriangle className="w-5 h-5" />
-                            <span className="font-mono uppercase tracking-widest text-sm">{t('problem_tag')}</span>
+                            <span className="font-mono uppercase tracking-widest text-xs">{t('problem_tag')}</span>
                         </div>
 
                         <h2 className="text-3xl md:text-5xl font-bold font-playfair text-white mb-3 md:mb-8 leading-[1.1] text-balance">
@@ -67,7 +67,7 @@ export function ProblemSolution() {
                     >
                         <div className="inline-flex items-center gap-2 text-emerald-500 mb-6">
                             <Zap className="w-5 h-5" />
-                            <span className="font-mono uppercase tracking-widest text-sm">{t('solution_tag')}</span>
+                            <span className="font-mono uppercase tracking-widest text-xs">{t('solution_tag')}</span>
                         </div>
 
                         <h2 className="text-3xl md:text-5xl font-bold font-playfair text-white mb-3 md:mb-8 leading-[1.1] text-balance">
