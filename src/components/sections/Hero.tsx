@@ -8,7 +8,7 @@ export function Hero() {
     const t = useTranslations("Hero");
 
     return (
-        <section id="hero" className="relative min-h-screen flex items-center pt-32 pb-20 md:pt-20 overflow-hidden bg-zinc-950 scroll-mt-24">
+        <section id="hero" className="relative min-h-screen flex items-center pt-20 pb-12 md:pt-20 overflow-hidden bg-zinc-950 scroll-mt-24">
             {/* Background Gradient from Mission (No Lines) */}
             <div className="absolute inset-0 opacity-20 pointer-events-none">
                 <svg className="w-full h-full overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -31,7 +31,7 @@ export function Hero() {
                         animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        <h1 className="text-[3rem] leading-[1.05] md:text-7xl lg:text-8xl font-bold font-playfair tracking-tighter">
+                        <h1 className="text-[3rem] leading-[0.9] md:text-7xl lg:text-8xl font-bold font-playfair tracking-tighter">
                             {t.rich('title', {
                                 highlight: (chunks) => <span className="text-white relative inline-block">
                                     <span className="relative z-10">{chunks}</span>
