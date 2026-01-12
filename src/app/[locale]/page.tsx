@@ -24,7 +24,6 @@ export default function Home() {
             <TechStack />
             <SEOMasterclass />
             <ImpactStats />
-            {/* <Features /> Removed per user request */}
             <Comparison />
             <Process />
             <Pricing />

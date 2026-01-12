@@ -155,6 +155,7 @@ export function Comparison() {
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: 0.1 }}
+                                        as="div"
                                         className="text-4xl md:text-6xl font-playfair text-white leading-tight drop-shadow-2xl"
                                     >
                                         The Art of <br />
@@ -184,13 +185,13 @@ export function Comparison() {
                                     >
                                         About Us
                                     </motion.p>
-                                    <motion.h3
+                                    <motion.div
                                         initial={{ opacity: 0, x: -20 }}
                                         whileInView={{ opacity: 1, x: 0 }}
                                         className="text-3xl font-playfair text-white"
                                     >
                                         Unmatched Elegance
-                                    </motion.h3>
+                                    </motion.div>
                                     <motion.p
                                         initial={{ opacity: 0 }}
                                         whileInView={{ opacity: 1 }}
@@ -285,9 +286,9 @@ export function Comparison() {
                                         }}
                                     ></div>
                                     <div className="max-w-md w-full bg-[#E0E0E0]/90 p-6 border-2 border-black space-y-4 text-center relative z-10 shadow-none">
-                                        <h1 className="text-3xl font-arial text-[#0000FF] font-bold uppercase underline decoration-2">
+                                        <div className="text-3xl font-arial text-[#0000FF] font-bold uppercase underline decoration-2">
                                             VILLAS FOR SALE
-                                        </h1>
+                                        </div>
                                         <p className="text-black text-lg font-times font-bold leading-normal">
                                             WE HAVE THE BEST HOUSES IN ALGARVE.<br />
                                             CLICK BUTTON FOR SEE MORE.
@@ -300,7 +301,7 @@ export function Comparison() {
 
                                 {/* Standard Text Wall */}
                                 <div className="bg-white p-8 border-b border-gray-400">
-                                    <h3 className="text-xl font-arial font-bold text-black border-b border-black mb-4 inline-block">About Us</h3>
+                                    <div className="text-xl font-arial font-bold text-black border-b border-black mb-4 inline-block">About Us</div>
                                     <p className="text-black font-times text-sm leading-relaxed text-justify">
                                         Welcome to Algarve Estates. We are real estate agents selling homes since 1999. We have many options for you.
                                         Contact us on the number below. Our office is open 9am to 6pm. We are very professional and have good houses.
@@ -312,7 +313,7 @@ export function Comparison() {
 
                                 {/* Standard Bullets */}
                                 <div className="bg-[#EFEFEF] p-8">
-                                    <h3 className="text-xl font-arial font-bold text-black mb-4">Our Services:</h3>
+                                    <div className="text-xl font-arial font-bold text-black mb-4">Our Services:</div>
                                     <ul className="list-disc pl-6 text-black font-arial text-sm space-y-1">
                                         <li>Selling Homes</li>
                                         <li>Buying Homes</li>
