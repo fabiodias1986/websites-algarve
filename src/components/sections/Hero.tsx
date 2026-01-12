@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { Rocket } from "lucide-react";
 
 export function Hero() {
     const t = useTranslations("Hero");
@@ -56,9 +57,12 @@ export function Hero() {
                             href={`https://wa.me/351910908608?text=${encodeURIComponent(t('cta_plan_message'))}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center text-base md:text-lg px-8 h-12 md:h-14 rounded-full bg-white text-black hover:bg-white/90 shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-shadow"
+                            className="group relative inline-flex items-center justify-center text-base md:text-lg px-8 h-12 md:h-14 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 text-black font-bold transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(52,211,153,0.6)]"
                         >
-                            {t('cta_plan')}
+                            <span className="relative z-10 flex items-center gap-2">
+                                {t('cta_plan')}
+                                <Rocket className="w-5 h-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                            </span>
                         </a>
                         <a
                             href={`https://wa.me/351910908608?text=${encodeURIComponent(t('cta_portfolio_message'))}`}
