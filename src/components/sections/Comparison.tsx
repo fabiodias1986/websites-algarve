@@ -150,17 +150,16 @@ export function Comparison() {
                                     >
                                         Private Collection
                                     </motion.div>
-                                    <motion.h1
+                                    <motion.div
                                         initial={{ opacity: 0, y: 20 }}
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: 0.1 }}
-                                        as="div"
                                         className="text-4xl md:text-6xl font-playfair text-white leading-tight drop-shadow-2xl"
                                     >
                                         The Art of <br />
                                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 to-emerald-500">Living Well.</span>
-                                    </motion.h1>
+                                    </motion.div>
                                     <motion.button
                                         initial={{ opacity: 0, y: 20 }}
                                         whileInView={{ opacity: 1, y: 0 }}
