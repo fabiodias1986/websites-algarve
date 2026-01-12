@@ -64,10 +64,10 @@ export function FAQ() {
                             <Accordion type="single" collapsible className="w-full space-y-4">
                                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((i) => (
                                     <AccordionItem key={i} value={`item-${i}`} className="border border-white/5 bg-white/5 px-6 rounded-lg data-[state=open]:border-emerald-500/30 transition-all overflow-hidden group">
-                                        <AccordionTrigger className="text-lg font-medium hover:no-underline hover:text-emerald-400 text-white py-6 text-left">
+                                        <AccordionTrigger className="text-base md:text-lg font-semibold hover:no-underline hover:text-emerald-400 text-white py-6 text-left text-balance">
                                             {t(`q${i}`)}
                                         </AccordionTrigger>
-                                        <AccordionContent className="text-zinc-400 leading-relaxed pb-6 text-base">
+                                        <AccordionContent className="text-zinc-400 leading-relaxed pb-6 text-base text-left">
                                             {t(`a${i}`)}
                                         </AccordionContent>
                                     </AccordionItem>
