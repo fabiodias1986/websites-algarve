@@ -75,7 +75,7 @@ export async function generateMetadata({
             type: 'website',
             images: [
                 {
-                    url: `${baseUrl}/images/og-image.jpg`, // Ensure this image exists or use a variable
+                    url: `${baseUrl}/images/logo2.svg`, // Ensure this image exists or use a variable
                     width: 1200,
                     height: 630,
                     alt: t('title'),

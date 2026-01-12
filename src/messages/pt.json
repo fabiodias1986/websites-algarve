@@ -272,7 +272,7 @@
     },
     "Consent": {
         "title": "Valorizamos a sua privacidade",
-        "description": "Utilizamos cookies para melhorar a sua experiência de navegação, apresentar anúncios ou conteúdos personalizados e analisar o nosso tráfego. Ao clicar em \"Aceitar Todos\", concorda com a nossa utilização de cookies.",
+        "description": "Utilizamos cookies para melhorar a sua experiência, apresentar conteúdos personalizados e analisar o nosso tráfego. Ao clicar em \"Aceitar Todos\", concorda com a nossa utilização de cookies. Leia a nossa <link>Política de Cookies</link> e <linkPrivacy>Política de Privacidade</linkPrivacy>.",
         "accept": "Aceitar Todos",
         "reject": "Rejeitar",
         "preferences": "Preferências"

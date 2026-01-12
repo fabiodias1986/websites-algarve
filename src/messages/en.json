@@ -271,6 +271,13 @@
         "phone_button": "Call Now",
         "availability": "Reply in < 5 minutes"
     },
+    "Consent": {
+        "title": "We value your privacy",
+        "description": "We use cookies to improve your browsing experience, provide personalized content, and analyze our traffic. By clicking \"Accept All\", you consent to our use of cookies. Read our <link>Cookie Policy</link> and <linkPrivacy>Privacy Policy</linkPrivacy>.",
+        "accept": "Accept All",
+        "reject": "Reject",
+        "preferences": "Preferences"
+    },
     "Privacy": {
         "title": "Privacy Policy",
         "subtitle": "Commitment to transparency and protection of your personal data, in full compliance with GDPR.",
