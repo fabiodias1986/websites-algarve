@@ -32,7 +32,7 @@ export function Hero() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0 }}
                     >
-                        <h1 className="text-[2.5rem] leading-[0.9] md:text-7xl lg:text-8xl font-bold font-playfair tracking-tighter text-balance">
+                        <h1 className="text-6xl leading-[0.9] md:text-7xl lg:text-8xl font-bold font-playfair tracking-tighter text-balance">
                             {t.rich('title', {
                                 highlight: (chunks) => <span className="text-white relative inline-block">
                                     <span className="relative z-10">{chunks}</span>

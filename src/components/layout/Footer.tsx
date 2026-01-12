@@ -11,7 +11,7 @@ export function Footer() {
     return (
         <footer className="bg-zinc-950 border-t border-white/10 pt-16 pb-8">
             <div className="container mx-auto px-4">
-                <div className="grid md:grid-cols-3 gap-12 mb-12">
+                <div className="grid md:grid-cols-[2fr_1fr_1fr] gap-12 mb-12">
                     {/* Brand & Socials */}
                     <div className="space-y-4">
                         <Link href="/" className="flex items-center gap-3 group">

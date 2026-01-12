@@ -59,7 +59,7 @@ export function Features() {
                                 </div>
                                 <div>
                                     <h3 className="text-xl font-bold font-playfair mb-2">{t(feature.key)}</h3>
-                                    <p className="text-muted-foreground text-sm leading-relaxed">
+                                    <p className="text-muted-foreground text-sm leading-relaxed text-balance">
                                         {t(feature.key === 'mobile_first' ? 'mobile_desc' : feature.key === 'seo_local' ? 'seo_desc' : feature.key === 'autonomous' ? 'autonomous_desc' : 'ai_desc')}
                                     </p>
                                 </div>

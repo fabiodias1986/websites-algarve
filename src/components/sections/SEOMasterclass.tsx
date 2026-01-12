@@ -45,13 +45,13 @@ export function SEOMasterclass() {
                             <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
                             <span className="text-sm font-mono text-emerald-400 uppercase tracking-widest">{t('badge')}</span>
                         </motion.div>
-                        <h2 className="text-[2.6rem] md:text-6xl font-bold text-white mb-8 font-playfair leading-[1.1] text-center md:text-left">
+                        <h2 className="text-3xl md:text-6xl font-bold text-white mb-4 md:mb-8 font-playfair leading-[1.1] text-center md:text-left text-balance">
                             {t.rich('title', {
                                 highlight: (chunks) => <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">{chunks}</span>,
                                 break: () => <br className="md:hidden" />
                             })}
                         </h2>
-                        <p className="text-lg text-zinc-400 leading-relaxed text-center md:text-left">
+                        <p className="text-base md:text-lg text-zinc-400 leading-relaxed text-center md:text-left text-balance">
                             {t('description')}
                         </p>
 

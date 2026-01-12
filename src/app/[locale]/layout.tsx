@@ -42,6 +42,7 @@ export async function generateMetadata({
         authors: [{ name: 'Websites Algarve' }],
         creator: 'Websites Algarve',
         publisher: 'Websites Algarve',
+        metadataBase: new URL(baseUrl),
         robots: {
             index: true,
             follow: true,

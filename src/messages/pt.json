@@ -74,7 +74,7 @@
         "cwv_cls": "Cumulative Layout Shift"
     },
     "Technologies": {
-        "badge": "Arquitetura de Alta Performance",
+        "badge": "Alta Performance",
         "title": "O Fim dos Websites <break></break><highlight>Lentos e Obsoletos</highlight>",
         "subtitle": "Não usamos ferramentas obsoletas. Escolhemos a tecnologia que garante velocidade, segurança e escalabilidade.",
         "nextjs_title": "Next.js",

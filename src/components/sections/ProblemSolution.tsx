@@ -27,14 +27,14 @@ export function ProblemSolution() {
                             <span className="font-mono uppercase tracking-widest text-sm">{t('problem_tag')}</span>
                         </div>
 
-                        <h2 className="text-[2.6rem] md:text-5xl font-bold font-playfair text-white mb-6 md:mb-8 leading-[1.1]">
+                        <h2 className="text-3xl md:text-5xl font-bold font-playfair text-white mb-3 md:mb-8 leading-[1.1] text-balance">
                             {t.rich('problem_title', {
                                 highlight: (chunks) => <span className="text-red-500">{chunks}</span>,
                                 break: () => <br className="md:hidden" />
                             })}
                         </h2>
 
-                        <p className="text-zinc-400 text-lg leading-relaxed mb-12">
+                        <p className="text-base md:text-lg text-zinc-400 leading-relaxed mb-12 text-balance">
                             {t('problem_desc')}
                         </p>
 
@@ -70,14 +70,14 @@ export function ProblemSolution() {
                             <span className="font-mono uppercase tracking-widest text-sm">{t('solution_tag')}</span>
                         </div>
 
-                        <h2 className="text-[2.6rem] md:text-5xl font-bold font-playfair text-white mb-6 md:mb-8 leading-[1.1]">
+                        <h2 className="text-3xl md:text-5xl font-bold font-playfair text-white mb-3 md:mb-8 leading-[1.1] text-balance">
                             {t.rich('solution_title', {
                                 highlight: (chunks) => <span className="text-emerald-400">{chunks}</span>,
                                 break: () => <br className="md:hidden" />
                             })}
                         </h2>
 
-                        <p className="text-zinc-300 text-lg leading-relaxed mb-12">
+                        <p className="text-base md:text-lg text-zinc-300 leading-relaxed mb-12 text-balance">
                             The ultimate upgrade for your digital presence.
                         </p>
 
