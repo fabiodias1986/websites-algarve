@@ -140,9 +140,9 @@ export function Navbar() {
                             href="https://wa.me/351910908608"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-emerald-500 hover:bg-emerald-400 text-black px-6 py-2.5 rounded-full text-sm font-bold transition-colors flex items-center gap-2"
+                            className="bg-emerald-500 hover:bg-emerald-400 text-black px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_20px_rgba(52,211,153,0.5)] active:scale-95 flex items-center gap-2 group"
                         >
-                            <FaWhatsapp className="w-5 h-5" />
+                            <FaWhatsapp className="w-5 h-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12" />
                             {t("contact")}
                         </a>
                         <LanguageSwitcher />
@@ -178,9 +178,9 @@ export function Navbar() {
                                         href="https://wa.me/351910908608"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="w-64 bg-emerald-500 hover:bg-emerald-400 text-black font-bold rounded-full py-6 text-lg uppercase tracking-wider mt-4 flex items-center justify-center gap-2"
+                                        className="w-64 bg-emerald-500 hover:bg-emerald-400 text-black font-bold rounded-full py-6 text-lg uppercase tracking-wider mt-4 flex items-center justify-center gap-2 transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_20px_rgba(52,211,153,0.5)] active:scale-95 group"
                                     >
-                                        <FaWhatsapp className="w-6 h-6" />
+                                        <FaWhatsapp className="w-6 h-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12" />
                                         {t("contact")}
                                     </a>
                                 </div>
