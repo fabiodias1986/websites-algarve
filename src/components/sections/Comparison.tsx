@@ -49,6 +49,9 @@ export function Comparison() {
     };
 
     const handleTouchMove = (e: React.TouchEvent) => {
+        // Prevent default browser behavior (navigating back/forward) only if we are dragging
+        // Note: touch-action: pan-y in CSS is the primary fix, but this adds a layer of safety if supported
+        // e.preventDefault() might be ignored if the listener is passive, but we trust CSS touch-action.
         handleMove(e.touches[0].clientX);
     };
 
@@ -101,6 +104,7 @@ export function Comparison() {
                 <div
                     ref={containerRef}
                     className="relative w-full max-w-5xl mx-auto h-[450px] md:h-[600px] rounded-2xl overflow-hidden cursor-ew-resize select-none border border-white/10 shadow-2xl bg-black touch-pan-y"
+                    style={{ touchAction: 'pan-y' }} // Explicit inline style to ensure browser respects it
                     onMouseDown={() => isDragging.current = true}
                     onMouseUp={() => isDragging.current = false}
                     onMouseLeave={() => isDragging.current = false}
@@ -109,19 +113,16 @@ export function Comparison() {
                     onClick={(e) => handleMove(e.clientX)}
                 >
                     {/* ... (rest of the component logic remains strictly same, just container className updated above) ... */}
-                    {/* Actually I need to be careful with the replacement block size. I will only target the badges and the container start line if possible, or do multiple chunks if they are far apart. 
-                        Wait, layout is container -> children -> badges at end. 
-                        I will do two chunks. One for container div, one for badges at the bottom.
-                    */}
 
-                    {/* Badges Replacement - I will handle this in the chunks below */}
+
                     {/* ==============================================
                         RIGHT SIDE (PREMIUM / AFTER) - SCROLLABLE
                        ============================================== */}
                     <div
                         ref={rightScrollRef}
                         onScroll={() => handleScroll('right')}
-                        className="absolute inset-0 bg-zinc-950 flex flex-col overflow-y-auto no-scrollbar"
+                        className="absolute inset-0 bg-zinc-950 flex flex-col overflow-y-auto no-scrollbar touch-pan-y"
+                        style={{ touchAction: 'pan-y' }}
                     >
 
                         {/* Premium Header */}
@@ -264,7 +265,8 @@ export function Comparison() {
                         <div
                             ref={leftScrollRef}
                             onScroll={() => handleScroll('left')}
-                            className="bg-[#f0f0f0] w-full h-full overflow-y-auto pointer-events-auto border-r-4 border-white font-sans no-scrollbar"
+                            className="bg-[#f0f0f0] w-full h-full overflow-y-auto pointer-events-auto border-r-4 border-white font-sans no-scrollbar touch-pan-y"
+                            style={{ touchAction: 'pan-y' }}
                         >
                             {/* Standard Header - 2005 Style */}
                             <div className="sticky top-0 z-50 h-20 bg-[#000080] border-b-4 border-[#0000FF] flex items-center justify-between px-6">

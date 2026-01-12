@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,7 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
 export function Navbar() {
     const t = useTranslations("Navbar");
+    const pathname = usePathname();
     const [activeSection, setActiveSection] = useState("#hero");
     const [scrolled, setScrolled] = useState(false);
     const [mounted, setMounted] = useState(false);
@@ -24,6 +25,9 @@ export function Navbar() {
 
     useEffect(() => {
         setMounted(true);
+        // If we are navigating from another page with a hash, we might want to scroll there
+        // But default browser behavior might handle it if we use standard Links.
+
         const sectionMapping: Record<string, string> = {
             "hero": "#hero",
             "mission": "#hero",
@@ -62,8 +66,25 @@ export function Navbar() {
             if (element) observer.observe(element);
         });
 
+        // Cleanup hash from URL if present (UX: Cleaner URLs)
+        if (window.location.hash) {
+            // Wait a tiny bit for browser to potentially scroll, then clean
+            setTimeout(() => {
+                history.replaceState(null, "", window.location.pathname);
+            }, 100);
+        }
+
         return () => observer.disconnect();
     }, []);
+
+    // Cleanup hash when returning to home from another page
+    useEffect(() => {
+        if (pathname === "/" && window.location.hash) {
+            setTimeout(() => {
+                history.replaceState(null, "", window.location.pathname);
+            }, 500); // Slightly longer delay to ensure scroll happens first
+        }
+    }, [pathname]);
 
     const navLinks = [
         { href: "#hero", label: t("home") },
@@ -75,6 +96,8 @@ export function Navbar() {
     ];
 
     const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        if (pathname !== "/") return; // Allow default navigation on subpages
+
         e.preventDefault();
         const element = document.querySelector(href);
         if (element) {
@@ -118,13 +141,16 @@ export function Navbar() {
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-1 rounded-full bg-white/5 border border-white/10 p-1.5 backdrop-blur-sm">
                         {navLinks.map((link) => {
-                            const isActive = activeSection === link.href; // Changed from substring(1) to direct comparison
+                            const isActive = activeSection === link.href;
+                            const isHomePage = pathname === "/";
+                            const href = isHomePage ? link.href : `/${link.href}`;
+
                             return (
                                 <Link
                                     key={link.href}
-                                    href={link.href}
-                                    onClick={(e) => scrollToSection(e, link.href)}
-                                    className={`relative px-5 py-2 text-sm font-medium transition-all duration-300 rounded-full ${isActive
+                                    href={href}
+                                    onClick={(e) => isHomePage && scrollToSection(e, link.href)}
+                                    className={`relative px-5 py-2 text-sm font-medium transition-all duration-300 rounded-full ${isActive && isHomePage
                                         ? "text-black bg-emerald-400"
                                         : "text-zinc-400 hover:text-white hover:bg-white/5"
                                         }`}
@@ -161,18 +187,29 @@ export function Navbar() {
                                 </SheetTrigger>
                                 <SheetContent side="top" className="h-full bg-black/95 backdrop-blur-2xl border-white/5 pt-20">
                                     <div className="flex flex-col items-center justify-center gap-8 h-full">
-                                        {navLinks.map((link) => (
-                                            <a
-                                                key={link.href}
-                                                href={link.href}
-                                                onClick={(e) => {
-                                                    scrollToSection(e, link.href);
-                                                }}
-                                                className="text-3xl font-bold tracking-tight text-white hover:text-emerald-400 transition-colors font-playfair"
-                                            >
-                                                {link.label}
-                                            </a>
-                                        ))}
+                                        {navLinks.map((link) => {
+                                            const isHomePage = pathname === "/";
+                                            const href = isHomePage ? link.href : `/${link.href}`;
+
+                                            return (
+                                                <Link
+                                                    key={link.href}
+                                                    href={href}
+                                                    onClick={(e) => {
+                                                        if (isHomePage) {
+                                                            scrollToSection(e, link.href);
+                                                        }
+                                                        // Close sheet logic if needed? 
+                                                        // The SheetTrigger likely handles close on click if we add 'asChild' or similar, 
+                                                        // but standard Link might not close the sheet automatically without state.
+                                                        // However, keeping previous behavior scope first.
+                                                    }}
+                                                    className="text-3xl font-bold tracking-tight text-white hover:text-emerald-400 transition-colors font-playfair"
+                                                >
+                                                    {link.label}
+                                                </Link>
+                                            );
+                                        })}
                                         <a
                                             href="https://wa.me/351910908608"
                                             target="_blank"

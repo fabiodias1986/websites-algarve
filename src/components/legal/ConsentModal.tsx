@@ -57,7 +57,7 @@ export function ConsentModal() {
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     className="fixed bottom-4 left-4 right-4 md:bottom-8 md:left-8 md:right-auto z-50 flex justify-center md:block pointer-events-none"
                 >
-                    <div className="bg-zinc-950/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_0_40px_-10px_rgba(0,0,0,0.5)] p-6 md:p-8 max-w-2xl w-full pointer-events-auto flex flex-col md:flex-row gap-6 items-start ring-1 ring-white/5">
+                    <div className="bg-zinc-950/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_0_40px_-10px_rgba(0,0,0,0.5)] p-6 md:p-8 max-w-2xl w-full pointer-events-auto flex flex-col md:flex-row gap-6 items-center ring-1 ring-white/5">
 
                         {/* Icon */}
                         <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0 text-emerald-500 border border-emerald-500/20 shadow-[0_0_15px_-3px_rgba(16,185,129,0.15)]">
