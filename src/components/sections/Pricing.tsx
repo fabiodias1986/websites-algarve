@@ -81,7 +81,7 @@ export function Pricing() {
                     <h2 className="text-[2.6rem] md:text-6xl font-bold mb-6 font-playfair leading-[1.1] text-white">
                         {t.rich('title', {
                             highlight: (chunks) => <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">{chunks}</span>,
-                            break: () => <br className="md:hidden" />
+                            break: () => <br />
                         })}
                     </h2>
                     <p className="text-xl text-zinc-400 font-light leading-relaxed max-w-2xl mx-auto">
