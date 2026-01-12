@@ -57,7 +57,7 @@ export function Hero() {
                             href={`https://wa.me/351910908608?text=${encodeURIComponent(t('cta_plan_message'))}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group relative inline-flex items-center justify-center text-base md:text-lg px-8 h-12 md:h-14 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 text-black font-bold transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(52,211,153,0.6)]"
+                            className="group relative inline-flex items-center justify-center text-base md:text-lg px-8 h-12 md:h-14 rounded-full bg-emerald-500 text-black font-bold transition-all duration-300 hover:bg-emerald-400 hover:scale-105 hover:shadow-[0_0_30px_rgba(52,211,153,0.4)]"
                         >
                             <span className="relative z-10 flex items-center gap-2">
                                 {t('cta_plan')}
