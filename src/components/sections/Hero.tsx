@@ -27,11 +27,7 @@ export function Hero() {
 
                 {/* Text Content */}
                 <div className="space-y-8 relative z-20">
-                    <motion.div
-                        initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
-                        animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                    >
+                    <div className="md:animate-fade-in-up">
                         <h1 className="text-[3rem] leading-[0.9] md:text-7xl lg:text-8xl font-bold font-playfair tracking-tighter">
                             {t.rich('title', {
                                 highlight: (chunks) => <span className="text-white relative inline-block">
@@ -41,7 +37,7 @@ export function Hero() {
                                 break: () => <br className="md:hidden" />
                             })}
                         </h1>
-                    </motion.div>
+                    </div>
 
                     <motion.p
                         initial={{ opacity: 0, y: 10 }}

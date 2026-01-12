@@ -15,15 +15,25 @@ export function Footer() {
                     {/* Brand */}
                     <div className="col-span-1 md:col-span-2 space-y-4">
                         <Link href="/" className="text-2xl font-bold tracking-tighter font-playfair text-white">
-                            ALGARVE<span className="text-white/50"> WEBSITES</span>
+                            WEBSITES<span className="text-white/50"> ALGARVE</span>
                         </Link>
                         <p className="text-muted-foreground max-w-sm">
                             Helping Algarve businesses dominate the digital world with high-performance websites and AI integration.
                         </p>
                         <div className="flex gap-4 pt-4">
-                            {[Twitter, Instagram, Linkedin, Facebook].map((Icon, i) => (
-                                <a key={i} href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors text-white">
-                                    <Icon className="w-5 h-5" />
+                            {[
+                                { icon: Twitter, name: "Twitter" },
+                                { icon: Instagram, name: "Instagram" },
+                                { icon: Linkedin, name: "LinkedIn" },
+                                { icon: Facebook, name: "Facebook" }
+                            ].map((social, i) => (
+                                <a
+                                    key={i}
+                                    href="#"
+                                    aria-label={`Visit our ${social.name} page`}
+                                    className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors text-white"
+                                >
+                                    <social.icon className="w-5 h-5" />
                                 </a>
                             ))}
                         </div>

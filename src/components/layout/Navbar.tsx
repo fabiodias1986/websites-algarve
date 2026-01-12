@@ -153,7 +153,7 @@ export function Navbar() {
                         <LanguageSwitcher />
                         <Sheet>
                             <SheetTrigger asChild>
-                                <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 rounded-full">
+                                <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 rounded-full" aria-label="Toggle menu">
                                     <Menu className="h-5 w-5" />
                                 </Button>
                             </SheetTrigger>
