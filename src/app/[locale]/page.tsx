@@ -1,8 +1,7 @@
 import dynamic from 'next/dynamic';
 import { Hero } from "@/components/sections/Hero";
-import { Mission } from "@/components/sections/Mission";
-import { ProblemSolution } from "@/components/sections/ProblemSolution";
-
+const Mission = dynamic(() => import("@/components/sections/Mission").then(mod => mod.Mission));
+const ProblemSolution = dynamic(() => import("@/components/sections/ProblemSolution").then(mod => mod.ProblemSolution));
 const SEOMasterclass = dynamic(() => import("@/components/sections/SEOMasterclass").then(mod => mod.SEOMasterclass));
 const ImpactStats = dynamic(() => import("@/components/sections/ImpactStats").then(mod => mod.ImpactStats));
 const TechStack = dynamic(() => import("@/components/sections/TechStack").then(mod => mod.TechStack));
