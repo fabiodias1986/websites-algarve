@@ -27,7 +27,7 @@ export function Hero() {
 
                 {/* Text Content */}
                 <div className="space-y-8 relative z-20">
-                    <div className="md:animate-fade-in-up">
+                    <div className="">
                         <h1 className="text-[3rem] leading-[0.9] md:text-7xl lg:text-8xl font-bold font-playfair tracking-tighter">
                             {t.rich('title', {
                                 highlight: (chunks) => <span className="text-white relative inline-block">
