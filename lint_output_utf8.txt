@@ -1,0 +1,19 @@
+﻿
+> websites-algarve@0.1.0 lint
+> eslint
+
+
+C:\Users\pixel\Desktop\websites\websites-algarve\src\components\layout\Navbar.tsx
+   3:20  warning  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars
+  10:16  warning  'X' is defined but never used          @typescript-eslint/no-unused-vars
+  11:10  warning  'motion' is defined but never used     @typescript-eslint/no-unused-vars
+
+C:\Users\pixel\Desktop\websites\websites-algarve\src\components\sections\Comparison.tsx
+  3:28  warning  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars
+  4:10  warning  'motion' is defined but never used     @typescript-eslint/no-unused-vars
+
+C:\Users\pixel\Desktop\websites\websites-algarve\src\components\sections\Features.tsx
+  5:10  warning  'Card' is defined but never used  @typescript-eslint/no-unused-vars
+
+Ô£û 6 problems (0 errors, 6 warnings)
+
