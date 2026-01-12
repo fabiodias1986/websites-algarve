@@ -140,7 +140,7 @@ export function Navbar() {
                             href="https://wa.me/351910908608"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-[#25D366] hover:bg-[#128C7E] text-white px-6 py-2.5 rounded-full text-sm font-bold transition-colors flex items-center gap-2"
+                            className="bg-emerald-500 hover:bg-emerald-400 text-black px-6 py-2.5 rounded-full text-sm font-bold transition-colors flex items-center gap-2"
                         >
                             <FaWhatsapp className="w-5 h-5" />
                             {t("contact")}
@@ -178,7 +178,7 @@ export function Navbar() {
                                         href="https://wa.me/351910908608"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="w-64 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold rounded-full py-6 text-lg uppercase tracking-wider mt-4 flex items-center justify-center gap-2"
+                                        className="w-64 bg-emerald-500 hover:bg-emerald-400 text-black font-bold rounded-full py-6 text-lg uppercase tracking-wider mt-4 flex items-center justify-center gap-2"
                                     >
                                         <FaWhatsapp className="w-6 h-6" />
                                         {t("contact")}
