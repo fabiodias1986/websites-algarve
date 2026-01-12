@@ -23,11 +23,11 @@ export function LanguageSwitcher() {
     };
 
     const flags = {
-        pt: <PT title="Português" className="w-5 h-5 rounded-[2px]" />,
-        en: <US title="English" className="w-5 h-5 rounded-[2px]" />,
-        es: <ES title="Español" className="w-5 h-5 rounded-[2px]" />,
-        fr: <FR title="Français" className="w-5 h-5 rounded-[2px]" />,
-        de: <DE title="Deutsch" className="w-5 h-5 rounded-[2px]" />,
+        pt: <PT title="Português" className="w-6 h-6 rounded-[2px]" />,
+        en: <US title="English" className="w-6 h-6 rounded-[2px]" />,
+        es: <ES title="Español" className="w-6 h-6 rounded-[2px]" />,
+        fr: <FR title="Français" className="w-6 h-6 rounded-[2px]" />,
+        de: <DE title="Deutsch" className="w-6 h-6 rounded-[2px]" />,
     };
 
     const CurrentFlag = flags[locale as keyof typeof flags];
@@ -35,8 +35,8 @@ export function LanguageSwitcher() {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="rounded-full w-8 h-8 bg-white/5 hover:bg-white/10 transition-colors">
-                    {CurrentFlag || <Globe className="h-4 w-4 text-zinc-400" />}
+                <Button variant="ghost" size="icon" className="rounded-full w-10 h-10 bg-white/5 hover:bg-white/10 transition-colors">
+                    {CurrentFlag || <Globe className="h-5 w-5 text-zinc-400" />}
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="bg-zinc-950/90 backdrop-blur-xl border-white/10 p-1 min-w-[140px]">
