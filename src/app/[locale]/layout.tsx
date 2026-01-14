@@ -76,7 +76,7 @@ export async function generateMetadata({
             type: 'website',
             images: [
                 {
-                    url: `${baseUrl}/logo2.svg`, // Ensure this image exists or use a variable
+                    url: `${baseUrl}/social.png`, // Ensure this image exists or use a variable
                     width: 1200,
                     height: 630,
                     alt: t('title'),
@@ -89,7 +89,7 @@ export async function generateMetadata({
             title: t('title'),
             description: t('description'),
             creator: '@websitesalgarve', // Placeholder if no handle
-            images: [`${baseUrl}/logo2.svg`], // Ensure this image exists
+            images: [`${baseUrl}/social.png`], // Ensure this image exists
         },
         verification: {
             google: '6olK5u3RrUAYu-T2RanJ5rj8eircfTmAcSkIGTbuqBs',
