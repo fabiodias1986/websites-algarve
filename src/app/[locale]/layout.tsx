@@ -38,13 +38,25 @@ export async function generateMetadata({
     const currentUrl = `${baseUrl}/${locale}`;
 
     return {
-        title: t('title'),
+        title: {
+            default: t('title'),
+            template: '%s | Websites Algarve'
+        },
         description: t('description'),
         keywords: t('keywords'),
         authors: [{ name: 'Websites Algarve' }],
         creator: 'Websites Algarve',
         publisher: 'Websites Algarve',
         metadataBase: new URL(baseUrl),
+        icons: {
+            icon: '/favicon.ico',
+            shortcut: '/favicon.ico',
+            apple: '/apple-icon.png',
+            other: {
+                rel: 'apple-touch-icon-precomposed',
+                url: '/apple-icon.png',
+            },
+        },
         robots: {
             index: true,
             follow: true,

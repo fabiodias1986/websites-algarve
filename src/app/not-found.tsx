@@ -1,6 +1,16 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import "./globals.css";
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: '404 - Página Não Encontrada | Websites Algarve',
+    icons: {
+        icon: '/favicon.ico',
+        shortcut: '/favicon.ico',
+        apple: '/apple-icon.png',
+    },
+};
 
 export default function NotFound() {
     return (
