@@ -24,7 +24,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     };
 }
 
-import { useTranslations } from "next-intl";
 
 export default function CookiesPage() {
     const t = useTranslations("Cookies");
