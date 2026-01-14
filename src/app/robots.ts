@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/admin/',
         },
-        sitemap: 'https://websitesalgarve.pt/sitemap.xml',
+        sitemap: 'https://www.websitesalgarve.pt/sitemap.xml',
     };
 }
