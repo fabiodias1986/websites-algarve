@@ -1,4 +1,29 @@
+import { Cookie, Info } from "lucide-react";
+import { Metadata } from 'next';
 import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+    const { locale } = await params;
+    const baseUrl = 'https://www.websitesalgarve.pt';
+    const path = '/cookies';
+    const currentUrl = `${baseUrl}/${locale}${path}`;
+
+    return {
+        alternates: {
+            canonical: currentUrl,
+            languages: {
+                'pt': `${baseUrl}/pt${path}`,
+                'en': `${baseUrl}/en${path}`,
+                'es': `${baseUrl}/es${path}`,
+                'fr': `${baseUrl}/fr${path}`,
+                'de': `${baseUrl}/de${path}`,
+                'x-default': `${baseUrl}/pt${path}`,
+            },
+        }
+    };
+}
+
 import { useTranslations } from "next-intl";
 
 export default function CookiesPage() {

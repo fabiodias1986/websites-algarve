@@ -35,7 +35,7 @@ export async function generateMetadata({
     const t = await getTranslations({ locale, namespace: 'Metadata' });
 
     const baseUrl = 'https://www.websitesalgarve.pt';
-    const currentUrl = locale === 'pt' ? baseUrl : `${baseUrl}/${locale}`;
+    const currentUrl = `${baseUrl}/${locale}`;
 
     return {
         title: t('title'),
@@ -59,12 +59,12 @@ export async function generateMetadata({
         alternates: {
             canonical: currentUrl,
             languages: {
-                'pt': `${baseUrl}`,
+                'pt': `${baseUrl}/pt`,
                 'en': `${baseUrl}/en`,
                 'es': `${baseUrl}/es`,
                 'fr': `${baseUrl}/fr`,
                 'de': `${baseUrl}/de`,
-                'x-default': `${baseUrl}`,
+                'x-default': `${baseUrl}/pt`,
             },
         },
         openGraph: {
@@ -76,7 +76,7 @@ export async function generateMetadata({
             type: 'website',
             images: [
                 {
-                    url: `${baseUrl}/images/logo2.svg`, // Ensure this image exists or use a variable
+                    url: `${baseUrl}/logo2.svg`, // Ensure this image exists or use a variable
                     width: 1200,
                     height: 630,
                     alt: t('title'),
@@ -89,7 +89,7 @@ export async function generateMetadata({
             title: t('title'),
             description: t('description'),
             creator: '@websitesalgarve', // Placeholder if no handle
-            images: [`${baseUrl}/images/twitter-image.jpg`], // Ensure this image exists
+            images: [`${baseUrl}/logo2.svg`], // Ensure this image exists
         },
         verification: {
             google: '6olK5u3RrUAYu-T2RanJ5rj8eircfTmAcSkIGTbuqBs',

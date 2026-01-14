@@ -1,4 +1,26 @@
 import dynamic from 'next/dynamic';
+import { Metadata } from 'next';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+    const { locale } = await params;
+    const baseUrl = 'https://www.websitesalgarve.pt';
+    const currentUrl = `${baseUrl}/${locale}`;
+
+    return {
+        alternates: {
+            canonical: currentUrl,
+            languages: {
+                'pt': `${baseUrl}/pt`,
+                'en': `${baseUrl}/en`,
+                'es': `${baseUrl}/es`,
+                'fr': `${baseUrl}/fr`,
+                'de': `${baseUrl}/de`,
+                'x-default': `${baseUrl}/pt`,
+            },
+        }
+    };
+}
+
 import { Hero } from "@/components/sections/Hero";
 const Mission = dynamic(() => import("@/components/sections/Mission").then(mod => mod.Mission));
 const ProblemSolution = dynamic(() => import("@/components/sections/ProblemSolution").then(mod => mod.ProblemSolution));

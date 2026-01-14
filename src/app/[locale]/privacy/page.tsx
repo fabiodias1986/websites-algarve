@@ -2,6 +2,29 @@ import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { Shield, Lock } from "lucide-react";
 
+import { Metadata } from 'next';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+    const { locale } = await params;
+    const baseUrl = 'https://www.websitesalgarve.pt';
+    const path = '/privacy';
+    const currentUrl = `${baseUrl}/${locale}${path}`;
+
+    return {
+        alternates: {
+            canonical: currentUrl,
+            languages: {
+                'pt': `${baseUrl}/pt${path}`,
+                'en': `${baseUrl}/en${path}`,
+                'es': `${baseUrl}/es${path}`,
+                'fr': `${baseUrl}/fr${path}`,
+                'de': `${baseUrl}/de${path}`,
+                'x-default': `${baseUrl}/pt${path}`,
+            },
+        }
+    };
+}
+
 export default function PrivacyPage() {
     const t = useTranslations("Privacy");
 
